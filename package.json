@@ -4,9 +4,9 @@
   "description": "A schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js",
-    "eslint": "DEBUG=eslint:cli-engine eslint .",
-    "eslint-fix": "DEBUG=eslint:cli-engine eslint --fix .",
+    "test": "npm run build && jasmine dist/**/*_spec.js",
+    "eslint": "DEBUG=eslint:cli-engine eslint src",
+    "eslint-fix": "DEBUG=eslint:cli-engine eslint --fix src",
     "prepare": "husky install || exit 0"
   },
   "keywords": [
