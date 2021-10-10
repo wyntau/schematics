@@ -3,6 +3,7 @@
   "$id": "toolchainHuskySchema",
   "title": "toolchain husky options schema",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "toolchain-commitlint": {
       "type": "boolean",
