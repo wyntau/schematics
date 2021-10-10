@@ -1,4 +1,4 @@
 export interface IToolchainHuskySchema {
-  toolchainCommitlint?: boolean;
-  toolchainLintStaged?: boolean;
+  'toolchain-commitlint'?: boolean;
+  'toolchain-lint-staged'?: boolean;
 }

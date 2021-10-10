@@ -4,12 +4,12 @@
   "title": "toolchain husky options schema",
   "type": "object",
   "properties": {
-    "toolchainCommitlint": {
+    "toolchain-commitlint": {
       "type": "boolean",
       "default": true,
       "description": "enable toolchain commitlint support"
     },
-    "toolchainLintStaged": {
+    "toolchain-lint-staged": {
       "type": "boolean",
       "default": true,
       "description": "enable toolchain lint-staged support"
