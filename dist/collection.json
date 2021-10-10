@@ -1,19 +1,5 @@
-// By default, collection.json is a Loose-format JSON5 format, which means it's loaded using a
-// special loader and you can use comments, as well as single quotes or no-quotes for standard
-// JavaScript identifiers.
-// Note that this is only true for collection.json and it depends on the tooling itself.
-// We read package.json using a require() call, which is standard JSON.
 {
-  // This is just to indicate to your IDE that there is a schema for collection.json.
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
-
-  // Schematics are listed as a map of schematicName => schematicDescription.
-  // Each description contains a description field which is required, a factory reference,
-  // an extends field and a schema reference.
-  // The extends field points to another schematic (either in the same collection or a
-  // separate collection using the format collectionName:schematicName).
-  // The factory is required, except when using the extends field. Then the factory can
-  // overwrite the extended schematic factory.
   "schematics": {
     "my-schematic": {
       "description": "An example schematic",
@@ -31,6 +17,58 @@
     "my-extend-schematic": {
       "description": "A schematic that extends another schematic.",
       "extends": "my-full-schematic"
+    },
+    "toolchain-commitlint": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-commitlint/index#toolchainCommitlint"
+    },
+    "toolchain-eslint": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-eslint/index#toolchainEslint"
+    },
+    "toolchain-husky": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-husky/index#toolchainHusky"
+    },
+    "toolchain-lerna": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-lerna/index#toolchainLerna"
+    },
+    "toolchain-lint-staged": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-lint-staged/index#toolchainLintStaged"
+    },
+    "toolchain-npm": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-npm/index#toolchainNpm"
+    },
+    "toolchain-nvm": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-nvm/index#toolchainNvm"
+    },
+    "toolchain-patch-package": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-patch-package/index#toolchainPatchPackage"
+    },
+    "toolchain-prettier": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-prettier/index#toolchainPrettier"
+    },
+    "toolchain-typescript": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-typescript/index#toolchainTypescript"
+    },
+    "toolchain-yarn": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-yarn/index#toolchainYarn"
+    },
+    "starter-typescript": {
+      "description": "A blank schematic.",
+      "factory": "./starter-typescript/index#starterTypescript"
+    },
+    "starter-miniprogram": {
+      "description": "A blank schematic.",
+      "factory": "./starter-miniprogram/index#starterMiniprogram"
     }
   }
 }
