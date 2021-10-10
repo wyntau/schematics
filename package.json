@@ -1,0 +1,27 @@
+{
+  "name": "@wyntau/schematics",
+  "version": "0.0.0",
+  "description": "A schematics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "wyntau <wyntau@outlook.com>",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^12.2.9",
+    "@angular-devkit/schematics": "^12.2.9",
+    "typescript": "~4.3.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~3.8.0",
+    "@types/node": "^12.11.1",
+    "jasmine": "~3.8.0"
+  },
+  "main": "index.js",
+  "repository": "git@github.com:wyntau/schematics.git"
+}
