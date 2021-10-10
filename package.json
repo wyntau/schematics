@@ -12,9 +12,13 @@
   "keywords": [
     "schematics"
   ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "wyntau <wyntau@outlook.com>",
   "license": "MIT",
-  "schematics": "./src/collection.json",
+  "schematics": "./dist/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^12.2.9",
     "@angular-devkit/schematics": "^12.2.9",
