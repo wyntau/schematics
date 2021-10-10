@@ -251,10 +251,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@types/jasmine@~3.8.0":
-  version "3.8.2"
-  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.8.2.tgz#27ab0aaac29581bcbde5774e1843f90df977078e"
-  integrity sha1-J6sKqsKVgby95XdOGEP5Dfl3B44=
+"@types/jasmine@^3.9.1":
+  version "3.9.1"
+  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.9.1.tgz#94c65ee8bf9d24d9e1d84abaed57b6e0da8b49de"
+  integrity sha1-lMZe6L+dJNnh2Eq67Ve24NqLSd4=
 
 "@types/json-schema@^7.0.7":
   version "7.0.9"
@@ -266,10 +266,10 @@
   resolved "https://registry.npmmirror.com/@types/minimist/download/@types/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha1-7nceK6Sz3Fs3KTXVSf2WF780W4w=
 
-"@types/node@^12.11.1":
-  version "12.20.28"
-  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-12.20.28.tgz#4b20048c6052b5f51a8d5e0d2acbf63d5a17e1e2"
-  integrity sha1-SyAEjGBStfUajV4NKsv2PVoX4eI=
+"@types/node@^16.10.3":
+  version "16.10.3"
+  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.10.3.tgz#7a8f2838603ea314d1d22bb3171d899e15c57bd5"
+  integrity sha1-eo8oOGA+oxTR0iuzFx2JnhXFe9U=
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -841,7 +841,7 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.npmmirror.com/eslint-visitor-keys/download/eslint-visitor-keys-2.1.0.tgz?cache=0&sync_timestamp=1632753980208&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-2.1.0.tgz#f65328259305927392c938ed44eb0a5c9b2bd303"
   integrity sha1-9lMoJZMFknOSyTjtROsKXJsr0wM=
 
-eslint@^7.x:
+eslint@^7.32.0:
   version "7.32.0"
   resolved "https://registry.npmmirror.com/eslint/download/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
   integrity sha1-xtMooUvj+wjI0dIeEsAv23oqgS0=
@@ -1302,18 +1302,18 @@ isexe@^2.0.0:
   resolved "https://registry.npmmirror.com/isexe/download/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jasmine-core@~3.8.0:
-  version "3.8.0"
-  resolved "https://registry.npmmirror.com/jasmine-core/download/jasmine-core-3.8.0.tgz#815399aae5aa5d9beeb1262805f981b99ffc9bf0"
-  integrity sha1-gVOZquWqXZvusSYoBfmBuZ/8m/A=
+jasmine-core@~3.9.0:
+  version "3.9.0"
+  resolved "https://registry.npmmirror.com/jasmine-core/download/jasmine-core-3.9.0.tgz#09a3c8169fe98ec69440476d04a0e4cb4d59e452"
+  integrity sha1-CaPIFp/pjsaUQEdtBKDky01Z5FI=
 
-jasmine@~3.8.0:
-  version "3.8.0"
-  resolved "https://registry.npmmirror.com/jasmine/download/jasmine-3.8.0.tgz#4497bc797eede7ca9de18179aedd4cf50245d8dc"
-  integrity sha1-RJe8eX7t58qd4YF5rt1M9QJF2Nw=
+jasmine@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.npmmirror.com/jasmine/download/jasmine-3.9.0.tgz#286c4f9f88b69defc24acf3989af5533d5c6a0e6"
+  integrity sha1-KGxPn4i2ne/CSs85ia9VM9XGoOY=
   dependencies:
     glob "^7.1.6"
-    jasmine-core "~3.8.0"
+    jasmine-core "~3.9.0"
 
 js-tokens@^4.0.0:
   version "4.0.0"
