@@ -1,7 +1,6 @@
 # Outputs
 dist/*/*
 !dist/*/schema.json
-!dist/*/schema.d.ts
 !dist/*/files
 
 # IDEs
