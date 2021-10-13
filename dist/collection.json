@@ -66,6 +66,10 @@
     "starter-miniprogram": {
       "description": "A blank schematic.",
       "factory": "./starter-miniprogram/index#starterMiniprogram"
+    },
+    "toolchain-lint-recently": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-lint-recently/index#toolchainLintRecently"
     }
   }
 }
