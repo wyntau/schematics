@@ -263,6 +263,15 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@schematics/angular@^12.2.9":
+  version "12.2.9"
+  resolved "https://registry.npmmirror.com/@schematics/angular/download/@schematics/angular-12.2.9.tgz#6787a7b79020fb031e46e59f36767d6579dc5d50"
+  integrity sha1-Z4ent5Ag+wMeRuWfNnZ9ZXncXVA=
+  dependencies:
+    "@angular-devkit/core" "12.2.9"
+    "@angular-devkit/schematics" "12.2.9"
+    jsonc-parser "3.0.0"
+
 "@types/jasmine@^3.9.1":
   version "3.9.1"
   resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.9.1.tgz#94c65ee8bf9d24d9e1d84abaed57b6e0da8b49de"
@@ -1417,6 +1426,11 @@ json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmmirror.com/json-stable-stringify-without-jsonify/download/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
+
+jsonc-parser@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/jsonc-parser/download/jsonc-parser-3.0.0.tgz#abdd785701c7e7eaca8a9ec8cf070ca51a745a22"
+  integrity sha1-q914VwHH5+rKip7IzwcMpRp0WiI=
 
 jsonfile@^6.0.1:
   version "6.1.0"
