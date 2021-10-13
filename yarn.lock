@@ -2346,10 +2346,10 @@ type-fest@^0.8.1:
   resolved "https://registry.npmmirror.com/type-fest/download/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha1-CeJJ696FHTseSNJ8EFREZn8XuD0=
 
-type-fest@^2.3.4:
-  version "2.3.4"
-  resolved "https://registry.npmmirror.com/type-fest/download/type-fest-2.3.4.tgz#59bd28c5715a7ea39f8fb0d7e424355ae231a24e"
-  integrity sha1-Wb0oxXFafqOfj7DX5CQ1WuIxok4=
+type-fest@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.npmmirror.com/type-fest/download/type-fest-2.5.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftype-fest%2Fdownload%2Ftype-fest-2.5.0.tgz#e5d0ef818d565e8fc442414194a4ac3afc4c42a7"
+  integrity sha1-5dDvgY1WXo/EQkFBlKSsOvxMQqc=
 
 typescript@^4.4.3:
   version "4.4.3"
