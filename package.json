@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "A schematics",
   "scripts": {
+    "clean": "rm -rf dist && git checkout -- dist",
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine dist/**/*_spec.js",
     "eslint": "DEBUG=eslint:cli-engine eslint src",
