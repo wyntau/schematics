@@ -25,7 +25,7 @@ export function toolchainCommitlint(_options: any): Rule {
       packageNames.forEach((packageName) => {
         const packageVersion = packages.dependencies![packageName];
 
-        debug(`get ${cyan(packageName)} version: %s`, packageVersion);
+        debug(`get ${cyan(packageName)} version: %s`, cyan(packageVersion));
 
         addPackageJsonDependency(tree, {
           type: NodeDependencyType.Dev,

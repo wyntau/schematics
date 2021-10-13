@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import debugLib from 'debug';
 import { PackageJson } from 'type-fest';
+import { cyan } from 'colorette';
 
 const debug = debugLib('@wyntau/schematics:toolchain-lint-recently');
 
@@ -17,11 +18,11 @@ export function toolchainLintRecently(_options: any): Rule {
       const packages: PackageJson = JSON5.parse(
         fs.readFileSync(path.resolve(__dirname, '../shared/package.json'), { encoding: 'utf-8' })
       );
+      debug(`parsed package.json: %O`, packages);
+
       const packageName = 'lint-recently';
       const packageVersion = packages.dependencies![packageName];
-
-      debug(`parsed package.json: %O`, packages);
-      debug(`get lint-recently version: %s`, packageVersion);
+      debug(`get ${cyan(packageName)} version: %s`, cyan(packageVersion));
 
       addPackageJsonDependency(tree, {
         type: NodeDependencyType.Dev,
