@@ -25,6 +25,7 @@
     "@schematics/angular": "^12.2.9",
     "@types/debug": "^4.1.7",
     "camelize": "^1.0.0",
+    "colorette": "^2.0.16",
     "debug": "^4.3.2",
     "json5": "^2.2.0",
     "tslib": "^2.3.1",
