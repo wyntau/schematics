@@ -9,6 +9,6 @@ describe('toolchain-commitlint', () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
     const tree = await runner.runSchematicAsync('toolchain-commitlint', {}, Tree.empty()).toPromise();
 
-    expect(tree.files).toEqual([]);
+    expect(tree.files).toEqual(['/.commitlintrc.json']);
   });
 });
