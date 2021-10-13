@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/lint-recently/dist/lib/schema.json",
+  "days": 3,
+  "patterns": {
+    "*.{ts,tsx,js,jsx}": "eslint"
+  }
+}

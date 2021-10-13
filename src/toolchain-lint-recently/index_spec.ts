@@ -9,6 +9,6 @@ describe('toolchain-lint-recently', () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
     const tree = await runner.runSchematicAsync('toolchain-lint-recently', {}, Tree.empty()).toPromise();
 
-    expect(tree.files).toEqual([]);
+    expect(tree.files).toEqual(['/.lintrecentlyrc.json']);
   });
 });
