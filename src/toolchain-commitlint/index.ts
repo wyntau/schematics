@@ -5,12 +5,13 @@ import fs from 'fs';
 import path from 'path';
 import debugLib from 'debug';
 import { PackageJson } from 'type-fest';
+import { cyan } from 'colorette';
 
 const debug = debugLib('@wyntau/schematics:toolchain-commitlint');
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function toolchainLintRecently(_options: any): Rule {
+export function toolchainCommitlint(_options: any): Rule {
   return chain([
     mergeWith(url('./files')),
     function (tree: Tree) {
@@ -24,7 +25,7 @@ export function toolchainLintRecently(_options: any): Rule {
       packageNames.forEach((packageName) => {
         const packageVersion = packages.dependencies![packageName];
 
-        debug(`get ${packageName} version: %s`, packageVersion);
+        debug(`get ${cyan(packageName)} version: %s`, packageVersion);
 
         addPackageJsonDependency(tree, {
           type: NodeDependencyType.Dev,
