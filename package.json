@@ -22,6 +22,7 @@
   "dependencies": {
     "@angular-devkit/core": "^12.2.9",
     "@angular-devkit/schematics": "^12.2.9",
+    "@schematics/angular": "^12.2.9",
     "camelize": "^1.0.0",
     "tslib": "^2.3.1",
     "type-fest": "^2.3.4"
