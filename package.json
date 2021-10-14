@@ -49,7 +49,7 @@
     "jasmine": "3.9.0",
     "lint-staged": "11.2.2",
     "prettier": "2.4.1",
-    "typescript": "4.4.3"
+    "typescript": "4.4.4"
   },
   "main": "index.js",
   "repository": "git@github.com:wyntau/schematics.git",
