@@ -9,16 +9,12 @@ describe('my-full-schematic', () => {
   it('requires required option', async () => {
     // We test that
     const runner = new SchematicTestRunner('schematics', collectionPath);
-    await expectAsync(
-      runner.runSchematicAsync('my-full-schematic', {}, Tree.empty()).toPromise(),
-    ).toBeRejected();
+    await expectAsync(runner.runSchematicAsync('my-full-schematic', {}, Tree.empty()).toPromise()).toBeRejected();
   });
 
   it('works', async () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = await runner
-      .runSchematicAsync('my-full-schematic', { name: 'str' }, Tree.empty())
-      .toPromise();
+    const tree = await runner.runSchematicAsync('my-full-schematic', { name: 'str' }, Tree.empty()).toPromise();
 
     // Listing files
     expect(tree.files.sort()).toEqual(['/allo', '/hola', '/test1', '/test2']);
