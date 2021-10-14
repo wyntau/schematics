@@ -14,9 +14,8 @@
       "matchPaths": ["dist/shared/latest-versions/package.json"],
       "matchPackagePatterns": ["*"],
       "groupName": "schematics dependencies",
-      "groupSlug": "all-schematics-dependencies",
       "lockFileMaintenance": { "enabled": false },
-      "pinVersions": false
+      "rangeStrategy": "replace"
     }
   ]
 }
