@@ -32,6 +32,6 @@ export function toolchainCommitlint(_options: IToolchainCommitlintOptions): Rule
 
       return tree;
     },
-    options.toolchainHusky ? addTask('commit-msg', 'npx commitlint') : noop(),
+    options.toolchainHusky ? addTask('commit-msg', 'npx commitlint --edit "$1"') : noop(),
   ]);
 }
