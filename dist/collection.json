@@ -16,7 +16,8 @@
     },
     "toolchain-commitlint": {
       "description": "A blank schematic.",
-      "factory": "./toolchain-commitlint/index#toolchainCommitlint"
+      "factory": "./toolchain-commitlint/index#toolchainCommitlint",
+      "schema": "./toolchain-commitlint/schema.json"
     },
     "toolchain-eslint": {
       "description": "A blank schematic.",
@@ -24,8 +25,7 @@
     },
     "toolchain-husky": {
       "description": "enable toolchain husky support",
-      "factory": "./toolchain-husky/index#toolchainHusky",
-      "schema": "./toolchain-husky/schema.json"
+      "factory": "./toolchain-husky/index#toolchainHusky"
     },
     "toolchain-lerna": {
       "description": "A blank schematic.",
@@ -33,7 +33,8 @@
     },
     "toolchain-lint-staged": {
       "description": "A blank schematic.",
-      "factory": "./toolchain-lint-staged/index#toolchainLintStaged"
+      "factory": "./toolchain-lint-staged/index#toolchainLintStaged",
+      "schema": "./toolchain-lint-staged/schema.json"
     },
     "toolchain-npm": {
       "description": "A blank schematic.",
