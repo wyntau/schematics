@@ -1419,18 +1419,18 @@ isexe@^2.0.0:
   resolved "https://registry.npmmirror.com/isexe/download/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jasmine-core@~3.9.0:
-  version "3.9.0"
-  resolved "https://registry.npmmirror.com/jasmine-core/download/jasmine-core-3.9.0.tgz#09a3c8169fe98ec69440476d04a0e4cb4d59e452"
-  integrity sha1-CaPIFp/pjsaUQEdtBKDky01Z5FI=
+jasmine-core@~3.10.0:
+  version "3.10.0"
+  resolved "https://registry.npmmirror.com/jasmine-core/download/jasmine-core-3.10.0.tgz#1e3e4053d954eb6d0bfbb3eb859bb21a5655de45"
+  integrity sha1-Hj5AU9lU620L+7PrhZuyGlZV3kU=
 
-jasmine@3.9.0:
-  version "3.9.0"
-  resolved "https://registry.npmmirror.com/jasmine/download/jasmine-3.9.0.tgz?cache=0&sync_timestamp=1634177180013&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fjasmine%2Fdownload%2Fjasmine-3.9.0.tgz#286c4f9f88b69defc24acf3989af5533d5c6a0e6"
-  integrity sha1-KGxPn4i2ne/CSs85ia9VM9XGoOY=
+jasmine@3.10.0:
+  version "3.10.0"
+  resolved "https://registry.npmmirror.com/jasmine/download/jasmine-3.10.0.tgz#acd3cd560a9d20d8fdad6bd2dd05867d188503f3"
+  integrity sha1-rNPNVgqdINj9rWvS3QWGfRiFA/M=
   dependencies:
     glob "^7.1.6"
-    jasmine-core "~3.9.0"
+    jasmine-core "~3.10.0"
 
 js-tokens@^4.0.0:
   version "4.0.0"
