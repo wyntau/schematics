@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rm -rf dist && git checkout -- dist",
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine dist/**/*_spec.js",
+    "test": "jasmine dist/**/*_spec.js",
     "lint": "npm run eslint",
     "eslint": "DEBUG=eslint:cli-engine eslint src",
     "eslint-fix": "DEBUG=eslint:cli-engine eslint --fix src",
