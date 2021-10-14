@@ -2354,7 +2354,12 @@ type-fest@^2.5.0:
   resolved "https://registry.npmmirror.com/type-fest/download/type-fest-2.5.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftype-fest%2Fdownload%2Ftype-fest-2.5.0.tgz#e5d0ef818d565e8fc442414194a4ac3afc4c42a7"
   integrity sha1-5dDvgY1WXo/EQkFBlKSsOvxMQqc=
 
-typescript@4.4.3, typescript@^4.4.3:
+typescript@4.4.4:
+  version "4.4.4"
+  resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz?cache=0&sync_timestamp=1634197241302&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  integrity sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=
+
+typescript@^4.4.3:
   version "4.4.3"
   resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
   integrity sha1-vcVAfKorEJ79T4L+EwZW+XeikyQ=
