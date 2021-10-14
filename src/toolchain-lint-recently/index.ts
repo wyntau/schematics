@@ -1,11 +1,8 @@
 import { chain, mergeWith, Rule, Tree, url } from '@angular-devkit/schematics';
 import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angular/utility/dependencies';
-import JSON5 from 'json5';
-import fs from 'fs';
-import path from 'path';
 import debugLib from 'debug';
-import { PackageJson } from 'type-fest';
 import { cyan } from 'colorette';
+import { latestVersions } from '../shared/latest-versions';
 
 const debug = debugLib('@wyntau/schematics:toolchain-lint-recently');
 
@@ -15,13 +12,8 @@ export function toolchainLintRecently(_options: any): Rule {
   return chain([
     mergeWith(url('./files')),
     function (tree: Tree) {
-      const packages: PackageJson = JSON5.parse(
-        fs.readFileSync(path.resolve(__dirname, '../shared/package.json'), { encoding: 'utf-8' })
-      );
-      debug(`parsed package.json: %O`, packages);
-
       const packageName = 'lint-recently';
-      const packageVersion = packages.dependencies![packageName];
+      const packageVersion = latestVersions[packageName];
       debug(`get ${cyan(packageName)} version: %s`, cyan(packageVersion));
 
       addPackageJsonDependency(tree, {
