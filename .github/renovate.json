@@ -11,11 +11,15 @@
         "@typescript-eslint/parser",
         "prettier"
       ],
-      "groupName": "ESLint related packages"
+      "groupName": "eslint"
     },
     {
       "matchPackageNames": ["typescript", "tslib"],
-      "groupName": "Typescript related packages"
+      "groupName": "typescript"
+    },
+    {
+      "matchPackageNames": ["@types/jasmine", "jasmine"],
+      "groupName": "jasmine"
     }
   ]
 }
