@@ -20,6 +20,13 @@
     {
       "matchPackageNames": ["@types/jasmine", "jasmine"],
       "groupName": "jasmine"
+    },
+    {
+      "matchPaths": ["dist/shared/package.json"],
+      "matchPackagePatterns": ["*"],
+      "groupName": "schematics dependencies",
+      "groupSlug": "all-schematics-dependencies",
+      "lockFileMaintenance": { "enabled": false }
     }
   ]
 }
