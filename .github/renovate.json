@@ -26,7 +26,8 @@
       "matchPackagePatterns": ["*"],
       "groupName": "schematics dependencies",
       "groupSlug": "all-schematics-dependencies",
-      "lockFileMaintenance": { "enabled": false }
+      "lockFileMaintenance": { "enabled": false },
+      "pinVersions": false
     }
   ]
 }
