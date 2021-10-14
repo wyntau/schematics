@@ -1,6 +1,6 @@
 # Outputs
 dist/*/*
-!dist/shared/lastest-versions/package.json
+!dist/shared/latest-versions
 !dist/*/schema.json
 !dist/*/files
 
