@@ -24,8 +24,6 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
       ? addPackageJsonDependency(['eslint-config-prettier', 'eslint-plugin-prettier', 'prettier'])
       : noop(),
 
-    options.toolchainLerna ? addPackageJsonDependency(['lerna'], NodeDependencyType.Dev) : noop(),
-
     options.target === 'react' || options.target === 'react-with-jsx-runtime'
       ? addPackageJsonDependency(['eslint-plugin-react', 'eslint-plugin-react-hooks'], NodeDependencyType.Dev)
       : options.target === 'vue'
