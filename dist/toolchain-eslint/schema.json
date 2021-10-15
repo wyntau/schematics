@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "toolchainEslintSchema",
+  "title": "toolchain eslint options schema",
+  "properties": {
+    "toolchain": {
+      "type": "array",
+      "description": "工具链选择",
+      "default": ["typescript", "prettier"],
+      "x-prompt": {
+        "message": "请选择工具链",
+        "type": "list",
+        "items": [
+          {
+            "label": "Typescript",
+            "value": "typescript"
+          },
+          {
+            "label": "Prettier",
+            "value": "prettier"
+          },
+          {
+            "label": "Lerna",
+            "value": "lerna"
+          }
+        ]
+      }
+    },
+    "target": {
+      "type": "string",
+      "description": "目标平台",
+      "default": "node",
+      "enum": ["node", "react", "react-with-jsx-runtime", "vue"],
+      "x-prompt": {
+        "message": "请选择目标平台",
+        "type": "list",
+        "items": [
+          {
+            "label": "node",
+            "value": "node"
+          },
+          {
+            "label": "react",
+            "value": "react"
+          },
+          {
+            "label": "react with jsx runtime",
+            "value": "react-with-jsx-runtime"
+          },
+          {
+            "label": "vue",
+            "value": "vue"
+          }
+        ]
+      }
+    }
+  }
+}
