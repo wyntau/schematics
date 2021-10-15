@@ -8,25 +8,30 @@ import { IToolchainEslintOptions } from './schema';
 export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
   return chain([
     mergeWith(url('./files')),
+
     addPackageJsonDependency(['eslint'], NodeDependencyType.Dev),
+
     _options.toolchain.indexOf('typescript') >= 0
       ? addPackageJsonDependency(
           ['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser', 'typescript'],
           NodeDependencyType.Dev
         )
       : noop(),
+
     _options.toolchain.indexOf('prettier') >= 0
       ? addPackageJsonDependency(['eslint-config-prettier', 'eslint-plugin-prettier', 'prettier'])
       : noop(),
+
     _options.toolchain.indexOf('lerna') >= 0 ? addPackageJsonDependency(['lerna'], NodeDependencyType.Dev) : noop(),
+
     _options.target === 'react' || _options.target === 'react-with-jsx-runtime'
       ? addPackageJsonDependency(['eslint-plugin-react', 'eslint-plugin-react-hooks'], NodeDependencyType.Dev)
       : _options.target === 'vue'
       ? addPackageJsonDependency(['eslint-plugin-vue', 'vue-eslint-parser'], NodeDependencyType.Dev)
       : noop(),
+
     function (tree: Tree) {
       const packageJson = new JSONFile(tree, 'package.json');
-
       packageJson.modify(['scripts', 'eslint'], 'DEBUG=eslint:cli-engine eslint .');
       packageJson.modify(['scripts', 'eslint-fix'], 'DEBUG=eslint:cli-engine eslint --fix .');
 
@@ -59,10 +64,10 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
         case 'vue': {
           const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
           eslintrcJson.modify(['extends'], extendsArray.concat(['plugin:vue/recommended']));
+
+          const originParser = eslintrcJson.get(['parser']) as string;
+          originParser && eslintrcJson.modify(['parserOptions', 'parser'], originParser);
           eslintrcJson.modify(['parser'], 'vue-eslint-parser');
-          if (_options.toolchain.indexOf('typescript') >= 0) {
-            eslintrcJson.modify(['parserOptions', 'parser'], '@typescript-eslint/parser');
-          }
           break;
         }
         default:
