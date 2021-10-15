@@ -3,7 +3,7 @@ import { addPackageJsonDependency, NodeDependencyType } from '@schematics/angula
 import debugLib from 'debug';
 import { cyan } from 'colorette';
 import { latestVersions } from '../shared/latest-versions';
-import { IToolchainCommitlintOptions } from './schema';
+import { IToolchainCommitlintSchema } from './schema';
 import { addTask } from '../toolchain-husky/utility';
 import { camelCasedOptions } from '../shared';
 
@@ -11,7 +11,7 @@ const debug = debugLib('@wyntau/schematics:toolchain-commitlint');
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function toolchainCommitlint(_options: IToolchainCommitlintOptions): Rule {
+export function toolchainCommitlint(_options: IToolchainCommitlintSchema): Rule {
   const options = camelCasedOptions(_options);
   return chain([
     mergeWith(url('./files')),
