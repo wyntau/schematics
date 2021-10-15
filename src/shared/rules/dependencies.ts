@@ -9,7 +9,7 @@ import debugLib from 'debug';
 
 export { NodeDependencyType } from '@schematics/angular/utility/dependencies';
 
-const debug = debugLib('@wyntau/schematics:shared/rules');
+const debug = debugLib('@wyntau/schematics:shared/rules/dependencies');
 
 export function addPackageJsonDependency(
   packageNames: Array<string>,
@@ -24,7 +24,7 @@ export function addPackageJsonDependency(
         return;
       }
 
-      debug(`add dependency ${cyan(packageName)} version: %s`, cyan(packageVersion));
+      debug(`add %s %s version: %s`, cyan(type), cyan(packageName), cyan(packageVersion));
       _addPackageJsonDependency(tree, {
         type: type,
         name: packageName,

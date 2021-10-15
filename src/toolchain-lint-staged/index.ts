@@ -11,6 +11,6 @@ export function toolchainLintStaged(_options: IToolchainLintStagedOptions): Rule
   return chain([
     mergeWith(url('./files')),
     addPackageJsonDependency(['lint-staged'], NodeDependencyType.Dev),
-    options.toolchainHusky ? addTask('commit-msg', 'npx lint-staged') : noop(),
+    options.toolchainHusky ? addTask('pre-commit', 'npx lint-staged') : noop(),
   ]);
 }
