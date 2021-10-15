@@ -15,7 +15,8 @@
       "matchPackagePatterns": ["*"],
       "groupName": "schematics dependencies",
       "lockFileMaintenance": { "enabled": false },
-      "rangeStrategy": "replace"
+      "rangeStrategy": "replace",
+      "separateMajorMinor": false
     }
   ]
 }
