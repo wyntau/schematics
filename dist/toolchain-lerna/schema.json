@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "toolchainLernaSchema",
+  "title": "toolchain lerna options schema",
+  "properties": {
+    "toolchain-yarn": {
+      "type": "boolean",
+      "default": true,
+      "description": "enable toolchain yarn",
+      "x-prompt": "开启 yarn 工具链支持"
+    }
+  }
+}

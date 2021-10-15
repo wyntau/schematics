@@ -30,7 +30,8 @@
     },
     "toolchain-lerna": {
       "description": "A blank schematic.",
-      "factory": "./toolchain-lerna/index#toolchainLerna"
+      "factory": "./toolchain-lerna/index#toolchainLerna",
+      "schema": "./toolchain-lerna/schema.json"
     },
     "toolchain-lint-staged": {
       "description": "A blank schematic.",
