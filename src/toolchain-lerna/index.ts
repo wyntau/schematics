@@ -1,9 +1,17 @@
-import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { apply, chain, contentTemplate, mergeWith, Rule, Tree, url } from '@angular-devkit/schematics';
+import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { camelCasedOptions } from '../shared/schema';
+import { IToolchainLernaOptions } from './schema';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function toolchainLerna(_options: any): Rule {
-  return (tree: Tree, _context: SchematicContext) => {
-    return tree;
-  };
+export function toolchainLerna(_options: IToolchainLernaOptions): Rule {
+  const options = camelCasedOptions(_options);
+  return chain([
+    addPackageJsonDependency(['lerna'], NodeDependencyType.Dev),
+    mergeWith(apply(url('./files'), [contentTemplate({ npmClient: options.toolchainYarn ? 'yarn' : 'npm' })])),
+    function (tree: Tree) {
+      return tree;
+    },
+  ]);
 }
