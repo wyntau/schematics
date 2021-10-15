@@ -21,7 +21,8 @@
     },
     "toolchain-eslint": {
       "description": "A blank schematic.",
-      "factory": "./toolchain-eslint/index#toolchainEslint"
+      "factory": "./toolchain-eslint/index#toolchainEslint",
+      "schema": "./toolchain-eslint/schema.json"
     },
     "toolchain-husky": {
       "description": "enable toolchain husky support",
