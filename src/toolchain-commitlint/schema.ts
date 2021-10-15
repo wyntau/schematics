@@ -1,3 +1,3 @@
-export interface IToolchainCommitlintOptions {
+export interface IToolchainCommitlintSchema {
   'toolchain-husky': boolean;
 }
