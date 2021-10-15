@@ -1,3 +1,3 @@
-export interface IToolchainLintStagedSchema {
+export interface IToolchainLintStagedOptions {
   'toolchain-husky': boolean;
 }
