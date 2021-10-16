@@ -64,9 +64,9 @@
       "description": "A blank schematic.",
       "factory": "./toolchain-lint-recently/index#toolchainLintRecently"
     },
-    "run-command": {
+    "run-task": {
       "description": "A blank schematic.",
-      "factory": "./run-command/index#runCommand",
+      "factory": "./run-task/index#runTask",
       "hidden": true
     }
   }
