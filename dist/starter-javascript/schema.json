@@ -1,16 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "starterTypescriptSchema",
+  "$id": "starterJavascriptSchema",
   "type": "object",
   "properties": {
     "toolchain": {
       "type": "array",
       "description": "enabled toolchains",
-      "default": ["eslint", "prettier", "husky", "lint-staged", "commitlint"],
+      "default": ["typescript", "eslint", "prettier", "husky", "lint-staged", "commitlint"],
       "x-prompt": {
         "message": "选择需要使用的技术栈",
         "type": "list",
         "items": [
+          { "label": "Typescript", "value": "typescript" },
           { "label": "ESLint", "value": "eslint" },
           { "label": "Prettier", "value": "prettier" },
 

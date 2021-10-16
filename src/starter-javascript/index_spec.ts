@@ -4,12 +4,12 @@ import * as path from 'path';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
-describe('starter-typescript', () => {
+describe('starter-javascript', () => {
   it('works', async () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
     const root = Tree.empty();
     root.create('package.json', '{}');
-    const tree = await runner.runSchematicAsync('starter-typescript', {}, root).toPromise();
+    const tree = await runner.runSchematicAsync('starter-javascript', {}, root).toPromise();
 
     expect(!!tree.files).toBeTrue();
   });

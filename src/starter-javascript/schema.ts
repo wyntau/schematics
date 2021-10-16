@@ -1,4 +1,4 @@
-export interface IStarterTypescriptOptions {
+export interface IStarterJavascriptOptions {
   toolchain: Array<
     | 'npm'
     | 'typescript'
