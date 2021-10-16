@@ -54,6 +54,16 @@ describe('schema utility functions', () => {
     });
   });
 
+  it('unprefixedOptions with multi prefix', () => {
+    const options = {
+      'foo-foo': true,
+      'bar-bar': false,
+      baz: 'baz',
+    };
+
+    expect(unprefixedOptions(options, ['foo', 'bar'])).toEqual({ foo: true, bar: false, baz: 'baz' });
+  });
+
   it('normalizeOptions', () => {
     const options = {
       fooBar: true,
