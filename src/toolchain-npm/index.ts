@@ -1,9 +1,9 @@
-import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { apply, contentTemplate, mergeWith, Rule, url } from '@angular-devkit/schematics';
+import { camelCasedOptions } from '../shared/schema';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainNpm(_options: any): Rule {
-  return (tree: Tree, _context: SchematicContext) => {
-    return tree;
-  };
+  const options = camelCasedOptions(_options);
+  return mergeWith(apply(url('./files'), [contentTemplate(options)]));
 }

@@ -40,7 +40,8 @@
     },
     "toolchain-npm": {
       "description": "A blank schematic.",
-      "factory": "./toolchain-npm/index#toolchainNpm"
+      "factory": "./toolchain-npm/index#toolchainNpm",
+      "schema": "./toolchain-npm/schema.json"
     },
     "toolchain-nvm": {
       "description": "A blank schematic.",
