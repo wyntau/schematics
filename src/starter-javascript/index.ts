@@ -1,21 +1,24 @@
 import { chain, noop, Rule, schematic } from '@angular-devkit/schematics';
 import { camelCasedOptions, unprefixedOptions } from '../shared/schema';
-import { IStarterTypescriptOptions } from './schema';
+import { IStarterJavascriptOptions } from './schema';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function starterTypescript(_options: IStarterTypescriptOptions): Rule {
+export function starterJavascript(_options: IStarterJavascriptOptions): Rule {
   const { toolchain, target, ...others } = _options;
 
   const rawOptions: Record<string, any> = others;
-  toolchain.concat(['npm', 'typescript']).forEach((item) => (rawOptions[`toolchain-${item}`] = true));
+  toolchain.concat(['npm']).forEach((item) => (rawOptions[`toolchain-${item}`] = true));
   rawOptions[`target-${target}`] = true;
 
-  const options: Record<string, any> = camelCasedOptions(rawOptions, 'starter-typescript');
+  const options: Record<string, any> = camelCasedOptions(rawOptions, 'starter-javascript');
 
   return chain([
     schematic('toolchain-npm', unprefixedOptions(rawOptions, 'toolchain-npm')),
-    schematic('toolchain-typescript', unprefixedOptions(rawOptions, 'toolchain-typescript')),
+
+    options.toolchainTypescript
+      ? schematic('toolchain-typescript', unprefixedOptions(rawOptions, 'toolchain-typescript'))
+      : noop(),
 
     options.toolchainEslint
       ? schematic('toolchain-eslint', Object.assign({ target }, unprefixedOptions(rawOptions, 'toolchain-eslint')))

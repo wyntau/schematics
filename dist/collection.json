@@ -51,10 +51,10 @@
       "factory": "./toolchain-yarn/index#toolchainYarn",
       "schema": "./toolchain-yarn/schema.json"
     },
-    "starter-typescript": {
+    "starter-javascript": {
       "description": "A blank schematic.",
-      "factory": "./starter-typescript/index#starterTypescript",
-      "schema": "./starter-typescript/schema.json"
+      "factory": "./starter-javascript/index#starterJavascript",
+      "schema": "./starter-javascript/schema.json"
     },
     "starter-miniprogram": {
       "description": "A blank schematic.",
