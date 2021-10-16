@@ -9,7 +9,7 @@ export function starterTypescript(_options: IStarterTypescriptOptions): Rule {
   _options.toolchain.concat(['npm', 'typescript']).forEach((item) => (rawOptions[`toolchain-${item}`] = true));
   rawOptions[`target-${_options.target}`] = true;
 
-  const options: Record<string, any> = camelCasedOptions(rawOptions);
+  const options: Record<string, any> = camelCasedOptions(rawOptions, 'starter-typescript');
 
   return chain([
     schematic('toolchain-npm', {}),

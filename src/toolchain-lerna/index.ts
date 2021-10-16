@@ -6,7 +6,7 @@ import { IToolchainLernaOptions } from './schema';
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainLerna(_options: IToolchainLernaOptions): Rule {
-  const options = camelCasedOptions(_options);
+  const options = camelCasedOptions(_options, 'toolchain-lerna');
   return chain([
     addPackageJsonDependency(['lerna'], NodeDependencyType.Dev),
     mergeWith(apply(url('./files'), [contentTemplate({ npmClient: options.toolchainYarn ? 'yarn' : 'npm' })])),
