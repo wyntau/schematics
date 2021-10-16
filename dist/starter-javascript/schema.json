@@ -40,7 +40,7 @@
         "items": [
           { "label": "node", "value": "node" },
           { "label": "React", "value": "react" },
-          { "label": "React with jsx runtime", "value": "react-with-jsx-runtime" },
+          { "label": "React with jsx runtime", "value": "react-enable-jsx-runtime" },
           { "label": "Vue", "value": "vue" }
         ]
       }

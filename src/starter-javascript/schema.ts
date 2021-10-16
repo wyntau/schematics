@@ -13,5 +13,5 @@ export interface IStarterJavascriptOptions {
     | 'prettier'
     | 'yarn'
   >;
-  target: 'node' | 'react' | 'react-with-jsx-runtime' | 'vue';
+  target: 'node' | 'react' | 'react-enable-jsx-runtime' | 'vue';
 }

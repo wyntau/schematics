@@ -1,6 +1,6 @@
 export interface IToolchainNpmOptions {
   'with-registry': string;
-  'with-engine-strict': boolean;
-  'with-yarn': boolean;
-  'with-nvm': boolean;
+  'enable-engine-strict': boolean;
+  'enable-yarn': boolean;
+  'enable-nvm': boolean;
 }

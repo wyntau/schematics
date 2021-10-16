@@ -10,10 +10,10 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
   return chain([
     mergeWith(
       apply(url('./files'), [
-        contentTemplate({ registry: options.withRegistry, engineStrict: options.withEngineStrict }),
+        contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
       ])
     ),
-    options.withYarn ? schematic('toolchain-yarn', options) : noop(),
-    options.withNvm ? schematic('toolchain-nvm', {}) : noop(),
+    options.enableYarn ? schematic('toolchain-yarn', options) : noop(),
+    options.enableNvm ? schematic('toolchain-nvm', {}) : noop(),
   ]);
 }
