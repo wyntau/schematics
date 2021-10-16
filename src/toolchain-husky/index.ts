@@ -1,12 +1,13 @@
-import { Rule, url, mergeWith, chain, Tree } from '@angular-devkit/schematics';
+import { Rule, url, chain, Tree } from '@angular-devkit/schematics';
 import { JSONFile } from '@schematics/angular/utility/json-file';
 import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { mergeWithIfNotExist } from '../shared/rules/files';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainHusky(): Rule {
   return chain([
-    mergeWith(url('./files')),
+    mergeWithIfNotExist(url('./files')),
     addPackageJsonDependency(['husky'], NodeDependencyType.Dev),
     function (tree: Tree) {
       const packageJson = new JSONFile(tree, 'package.json');
