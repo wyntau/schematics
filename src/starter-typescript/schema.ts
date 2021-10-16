@@ -1,5 +1,7 @@
 export interface IStarterTypescriptOptions {
   toolchain: Array<
+    | 'npm'
+    | 'typescript'
     | 'commitlint'
     | 'eslint'
     | 'husky'
