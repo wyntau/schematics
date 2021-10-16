@@ -2,7 +2,6 @@ import {
   apply,
   chain,
   contentTemplate,
-  mergeWith,
   noop,
   Rule,
   schematic,
@@ -14,6 +13,7 @@ import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainNpmOptions } from './schema';
 import debugLib from 'debug';
+import { mergeWithIfNotExist } from '../shared/rules/files';
 
 const debug = debugLib('@wyntau/schematics:toolchain-npm');
 
@@ -32,15 +32,11 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
             tree.create('package.json', '{}');
             return tree;
           },
-    // check .npmrc
-    (tree) =>
-      tree.exists('.npmrc')
-        ? noop()
-        : mergeWith(
-            apply(url('./files'), [
-              contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
-            ])
-          ),
+    mergeWithIfNotExist(
+      apply(url('./files'), [
+        contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
+      ])
+    ),
     options.enableYarn ? schematic('toolchain-yarn', _options) : noop(),
     options.enableNvm ? schematic('toolchain-nvm', _options) : noop(),
     function (tree: Tree, context: SchematicContext) {

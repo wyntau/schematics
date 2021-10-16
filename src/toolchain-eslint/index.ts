@@ -1,6 +1,7 @@
-import { chain, mergeWith, noop, Rule, Tree, url } from '@angular-devkit/schematics';
+import { chain, noop, Rule, Tree, url } from '@angular-devkit/schematics';
 import { JSONFile } from '@schematics/angular/utility/json-file';
 import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { mergeWithIfNotExist } from '../shared/rules/files';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainEslintOptions } from './schema';
 
@@ -9,7 +10,7 @@ import { IToolchainEslintOptions } from './schema';
 export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-eslint');
   return chain([
-    (tree) => (tree.exists('.eslintrc.json') ? noop() : mergeWith(url('./files'))),
+    mergeWithIfNotExist(url('./files')),
     addPackageJsonDependency(['eslint'], NodeDependencyType.Dev),
 
     options.toolchainTypescript
