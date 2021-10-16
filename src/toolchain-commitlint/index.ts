@@ -7,7 +7,7 @@ import { camelCasedOptions } from '../shared/schema';
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainCommitlint(_options: IToolchainCommitlintOptions): Rule {
-  const options = camelCasedOptions(_options, 'toolchain-commitlint');
+  const options = camelCasedOptions(_options);
   return chain([
     mergeWith(url('./files')),
     addPackageJsonDependency(['@commitlint/cli', '@commitlint/config-conventional'], NodeDependencyType.Dev),

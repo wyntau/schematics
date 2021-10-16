@@ -7,7 +7,7 @@ import { IToolchainEslintOptions } from './schema';
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
-  const options = camelCasedOptions(_options, 'toolchain-eslint');
+  const options = camelCasedOptions(_options);
   return chain([
     mergeWith(url('./files')),
 

@@ -14,7 +14,7 @@ describe('schema utility functions', () => {
       'toolchain-commitlint': false,
     };
 
-    expect(camelCasedOptions(options, 'test')).toEqual({ toolchainCommitlint: false, toolchainEslint: true });
+    expect(camelCasedOptions(options)).toEqual({ toolchainCommitlint: false, toolchainEslint: true });
   });
 
   it('kebabCasedOptions', () => {
@@ -23,7 +23,7 @@ describe('schema utility functions', () => {
       toolchainCommitlint: true,
     };
 
-    expect(kebabCasedOptions(options, 'test')).toEqual({ 'toolchain-eslint': true, 'toolchain-commitlint': true });
+    expect(kebabCasedOptions(options)).toEqual({ 'toolchain-eslint': true, 'toolchain-commitlint': true });
   });
 
   it('prefixedOptions', () => {
@@ -33,13 +33,11 @@ describe('schema utility functions', () => {
       baz: 'baz',
     };
 
-    expect(prefixedOptions<typeof options, 'foo' | 'bar', 'prefix'>(options, ['foo', 'bar'], 'prefix', 'test')).toEqual(
-      {
-        'prefix-foo': true,
-        'prefix-bar': false,
-        baz: 'baz',
-      }
-    );
+    expect(prefixedOptions<typeof options, 'foo' | 'bar', 'prefix'>(options, ['foo', 'bar'], 'prefix')).toEqual({
+      'prefix-foo': true,
+      'prefix-bar': false,
+      baz: 'baz',
+    });
   });
 
   it('unprefixedOptions', () => {
@@ -49,7 +47,7 @@ describe('schema utility functions', () => {
       baz: 'baz',
     };
 
-    expect(unprefixedOptions<typeof options, 'prefix'>(options, 'prefix', 'test')).toEqual({
+    expect(unprefixedOptions<typeof options, 'prefix'>(options, 'prefix')).toEqual({
       foo: true,
       bar: false,
       baz: 'baz',
@@ -64,7 +62,7 @@ describe('schema utility functions', () => {
     };
 
     expect(
-      normalizedOptions<typeof options, 'fooBar' | 'barFoo', 'prefix'>(options, ['fooBar', 'barFoo'], 'prefix', 'test')
+      normalizedOptions<typeof options, 'fooBar' | 'barFoo', 'prefix'>(options, ['fooBar', 'barFoo'], 'prefix')
     ).toEqual({
       'prefix-foo-bar': true,
       'prefix-bar-foo': false,
@@ -79,6 +77,6 @@ describe('schema utility functions', () => {
       'baz-baz': 'baz',
     };
 
-    expect(specializedOptions(options, 'prefix', 'teset')).toEqual({ fooBar: true, barFoo: false, bazBaz: 'baz' });
+    expect(specializedOptions(options, 'prefix')).toEqual({ fooBar: true, barFoo: false, bazBaz: 'baz' });
   });
 });
