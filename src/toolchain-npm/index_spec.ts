@@ -7,8 +7,10 @@ const collectionPath = path.join(__dirname, '../collection.json');
 describe('toolchain-npm', () => {
   it('works', async () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = await runner.runSchematicAsync('toolchain-npm', {}, Tree.empty()).toPromise();
+    const root = Tree.empty();
+    root.create('package.json', '{}');
+    const tree = await runner.runSchematicAsync('toolchain-npm', {}, root).toPromise();
 
-    expect(tree.files).toEqual([]);
+    expect(tree.files).toContain('/.npmrc');
   });
 });

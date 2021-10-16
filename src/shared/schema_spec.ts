@@ -4,10 +4,10 @@ describe('schema utility functions', () => {
   it('camelCasedOptions', () => {
     const options = {
       'toolchain-eslint': true,
-      'toolchain-commitlint': true,
+      'toolchain-commitlint': false,
     };
 
-    expect(camelCasedOptions(options, 'test')).toEqual({ toolchainCommitlint: true, toolchainEslint: false });
+    expect(camelCasedOptions(options, 'test')).toEqual({ toolchainCommitlint: false, toolchainEslint: true });
   });
 
   it('kebabCasedOptions', () => {
