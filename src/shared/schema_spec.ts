@@ -1,4 +1,11 @@
-import { camelCasedOptions, kebabCasedOptions, prefixedOptions, unprefixedOptions } from './schema';
+import {
+  camelCasedOptions,
+  kebabCasedOptions,
+  normalizedOptions,
+  prefixedOptions,
+  specializedOptions,
+  unprefixedOptions,
+} from './schema';
 
 describe('schema utility functions', () => {
   it('camelCasedOptions', () => {
@@ -47,5 +54,31 @@ describe('schema utility functions', () => {
       bar: false,
       baz: 'baz',
     });
+  });
+
+  it('normalizeOptions', () => {
+    const options = {
+      fooBar: true,
+      barFoo: false,
+      bazBaz: 'baz',
+    };
+
+    expect(
+      normalizedOptions<typeof options, 'fooBar' | 'barFoo', 'prefix'>(options, ['fooBar', 'barFoo'], 'prefix', 'test')
+    ).toEqual({
+      'prefix-foo-bar': true,
+      'prefix-bar-foo': false,
+      'baz-baz': 'baz',
+    });
+  });
+
+  it('specializedOptions', () => {
+    const options = {
+      'prefix-foo-bar': true,
+      'prefix-bar-foo': false,
+      'baz-baz': 'baz',
+    };
+
+    expect(specializedOptions(options, 'prefix', 'teset')).toEqual({ fooBar: true, barFoo: false, bazBaz: 'baz' });
   });
 });

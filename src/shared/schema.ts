@@ -68,12 +68,12 @@ export function unprefixedOptions<T extends Record<string, any>, U extends strin
 
 export function prefixedOptions<T extends Record<string, any>, Keys extends string, Pattern extends string>(
   input: T,
-  keys: Array<string>,
-  pattern: string,
+  keys: Array<Keys>,
+  pattern: Pattern,
   section: string
 ): PrefixedOptions<T, Keys, Pattern> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur: string) => {
-    if (keys.indexOf(cur) >= 0) {
+    if (keys.indexOf(cur as Keys) >= 0) {
       output[`${pattern}-${cur}`] = input[cur];
     } else {
       output[cur] = input[cur];
@@ -83,4 +83,21 @@ export function prefixedOptions<T extends Record<string, any>, Keys extends stri
 
   debug('prefixed %s options %o', section, options);
   return options;
+}
+
+export function specializedOptions<T extends Record<string, any>, Prefix extends string>(
+  options: T,
+  prefix: Prefix,
+  section: string
+): CamelCasedProperties<UnprefixedOptions<T, Prefix>> {
+  return camelCasedOptions(unprefixedOptions(options, prefix, section), section);
+}
+
+export function normalizedOptions<T extends Record<string, any>, Keys extends string, Pattern extends string>(
+  options: T,
+  keys: Array<Keys>,
+  pattern: Pattern,
+  section: string
+): KebabCasedProperties<PrefixedOptions<T, Keys, Pattern>> {
+  return kebabCasedOptions(prefixedOptions<T, Keys, Pattern>(options, keys, pattern, section), section);
 }

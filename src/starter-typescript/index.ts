@@ -1,8 +1,9 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { IStarterTypescriptOptions } from './schema';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function starterTypescript(_options: any): Rule {
+export function starterTypescript(_options: IStarterTypescriptOptions): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     return tree;
   };
