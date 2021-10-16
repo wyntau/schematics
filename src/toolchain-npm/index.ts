@@ -1,4 +1,16 @@
-import { apply, chain, contentTemplate, mergeWith, noop, Rule, schematic, url } from '@angular-devkit/schematics';
+import {
+  apply,
+  chain,
+  contentTemplate,
+  mergeWith,
+  noop,
+  Rule,
+  schematic,
+  SchematicContext,
+  Tree,
+  url,
+} from '@angular-devkit/schematics';
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainNpmOptions } from './schema';
 
@@ -15,5 +27,9 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
     ),
     options.enableYarn ? schematic('toolchain-yarn', options) : noop(),
     options.enableNvm ? schematic('toolchain-nvm', {}) : noop(),
+    function (tree: Tree, context: SchematicContext) {
+      context.addTask(new NodePackageInstallTask({ packageManager: options.enableYarn ? 'yarn' : 'npm' }));
+      return tree;
+    },
   ]);
 }
