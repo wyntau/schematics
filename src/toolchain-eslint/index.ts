@@ -40,42 +40,45 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
 
       const eslintrcJson = new JSONFile(tree, '.eslintrc.json');
 
+      let extendsArray: Array<string> = ['eslint:recommended'];
+      eslintrcJson.modify(['extends'], extendsArray);
+
+      let parser: string;
+      eslintrcJson.modify(['parser'], parser!);
+
+      let parserOptionsProject: Array<string> = [];
+      eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject!);
+
       if (options.toolchainTypescript) {
-        eslintrcJson.modify(['parser'], '@typescript-eslint/parser');
+        extendsArray = extendsArray.concat('plugin:@typescript-eslint/recommended');
+        eslintrcJson.modify(['extends'], extendsArray);
 
-        const parserOptionsProject = (eslintrcJson.get(['parserOptions', 'project']) || []) as Array<string>;
-        if (parserOptionsProject.indexOf('./tsconfig.json') < 0) {
-          eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject.concat('./tsconfig.json'));
-        }
+        parser = '@typescript-eslint/parser';
+        eslintrcJson.modify(['parser'], parser);
 
-        const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-        if (extendsArray.indexOf('plugin:@typescript-eslint/recommended') < 0) {
-          eslintrcJson.modify(['extends'], extendsArray.concat('plugin:@typescript-eslint/recommended'));
-        }
+        parserOptionsProject = parserOptionsProject.concat(['./tsconfig.json']);
+        eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject);
       }
 
       switch (options.target) {
         case 'react':
         case 'react-enable-jsx-runtime': {
-          const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-          const fullArray =
+          extendsArray = extendsArray.concat(
             options.target === 'react-enable-jsx-runtime'
               ? ['plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended']
-              : ['plugin:react/recommended', 'plugin:react-hooks/recommended'];
-
-          const appendArray = fullArray.filter((item) => extendsArray.indexOf(item) < 0);
-          eslintrcJson.modify(['extends'], extendsArray.concat(appendArray));
+              : ['plugin:react/recommended', 'plugin:react-hooks/recommended']
+          );
+          eslintrcJson.modify(['extends'], extendsArray);
           break;
         }
         case 'vue': {
-          const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-          if (extendsArray.indexOf('plugin:vue/recommended') < 0) {
-            eslintrcJson.modify(['extends'], extendsArray.concat('plugin:vue/recommended'));
-          }
+          extendsArray = extendsArray.concat('plugin:vue/recommended');
+          eslintrcJson.modify(['extends'], extendsArray);
 
-          const originParser = eslintrcJson.get(['parser']) as string;
-          originParser && eslintrcJson.modify(['parserOptions', 'parser'], originParser);
-          eslintrcJson.modify(['parser'], 'vue-eslint-parser');
+          const originParser = parser!;
+          parser = 'vue-eslint-parser';
+          eslintrcJson.modify(['parserOptions', 'parser'], originParser);
+          eslintrcJson.modify(['parser'], parser);
           break;
         }
         default:
@@ -83,15 +86,13 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
       }
 
       if (options.toolchainPrettier) {
-        const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-        if (extendsArray.indexOf('plugin:prettier/recommended') < 0) {
-          eslintrcJson.modify(['extends'], extendsArray.concat('plugin:prettier/recommended'));
-        }
+        extendsArray = extendsArray.concat('plugin:prettier/recommended');
+        eslintrcJson.modify(['extends'], extendsArray);
       }
 
       if (options.toolchainLerna && options.toolchainTypescript) {
-        const parserOptionsProject = (eslintrcJson.get(['parserOptions', 'project']) || []) as Array<string>;
-        eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject.concat('./packages/**/tsconfig.json'));
+        parserOptionsProject = parserOptionsProject.concat('./packages/**/tsconfig.json');
+        eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject);
       }
       return tree;
     },
