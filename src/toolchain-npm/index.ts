@@ -25,10 +25,12 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
         contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
       ])
     ),
-    options.enableYarn ? schematic('toolchain-yarn', options) : noop(),
-    options.enableNvm ? schematic('toolchain-nvm', {}) : noop(),
+    options.enableYarn ? schematic('toolchain-yarn', _options) : noop(),
+    options.enableNvm ? schematic('toolchain-nvm', _options) : noop(),
     function (tree: Tree, context: SchematicContext) {
-      context.addTask(new NodePackageInstallTask({ packageManager: options.enableYarn ? 'yarn' : 'npm' }));
+      context.addTask(
+        new NodePackageInstallTask({ packageManager: options.enableYarn ? 'yarn' : 'npm', hideOutput: false })
+      );
       return tree;
     },
   ]);
