@@ -15,7 +15,7 @@ export function addTask(hook: string, script: string): Rule {
     let hookFileContent = tree.read(hookFile)!.toString();
 
     if (hookFileContent.indexOf(script) >= 0) {
-      debug(`task repeated, skip`);
+      debug(`task repeated, skip: %s`, script);
       return tree;
     }
 
@@ -24,7 +24,7 @@ export function addTask(hook: string, script: string): Rule {
     }
 
     hookFileContent += script + '\n';
-    debug(`overwrite content:\n%s`, hookFile, hookFileContent);
+    debug(`overwrite %s content:\n%s`, hookFile, hookFileContent);
 
     tree.overwrite(hookFile, hookFileContent);
 
