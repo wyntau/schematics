@@ -1,19 +1,6 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "my-schematic": {
-      "description": "An example schematic",
-      "factory": "./my-schematic/index#mySchematic"
-    },
-    "my-other-schematic": {
-      "description": "A schematic that uses another schematics.",
-      "factory": "./my-other-schematic"
-    },
-    "my-full-schematic": {
-      "description": "A schematic using a source and a schema to validate options.",
-      "factory": "./my-full-schematic",
-      "schema": "./my-full-schematic/schema.json"
-    },
     "toolchain-commitlint": {
       "description": "A blank schematic.",
       "factory": "./toolchain-commitlint/index#toolchainCommitlint",
