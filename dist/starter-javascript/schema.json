@@ -3,15 +3,20 @@
   "$id": "starterJavascriptSchema",
   "type": "object",
   "properties": {
+    "toolchain-typescript": {
+      "type": "boolean",
+      "description": "enable Typescript",
+      "default": true,
+      "x-prompt": "使用 Typescript"
+    },
     "toolchain": {
       "type": "array",
       "description": "enabled toolchains",
-      "default": ["typescript", "eslint", "prettier", "husky", "lint-staged", "commitlint"],
+      "default": ["eslint", "prettier", "husky", "lint-staged", "commitlint"],
       "x-prompt": {
-        "message": "选择需要使用的技术栈",
+        "message": "选择需要使用的工具链",
         "type": "list",
         "items": [
-          { "label": "Typescript", "value": "typescript" },
           { "label": "ESLint", "value": "eslint" },
           { "label": "Prettier", "value": "prettier" },
 
@@ -30,7 +35,7 @@
       "default": "node",
       "description": "target",
       "x-prompt": {
-        "message": "选择生成目标",
+        "message": "选择目标技术栈",
         "type": "list",
         "items": [
           { "label": "node", "value": "node" },
