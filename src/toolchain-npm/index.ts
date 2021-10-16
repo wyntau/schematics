@@ -23,18 +23,24 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-npm');
 
   return chain([
-    function (tree: Tree) {
-      if (!tree.exists('/package.json')) {
-        debug('create package.json');
-        tree.create('package.json', '{}');
-      }
-      return tree;
-    },
-    mergeWith(
-      apply(url('./files'), [
-        contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
-      ])
-    ),
+    // check package.json
+    (tree) =>
+      tree.exists('package.json')
+        ? noop()
+        : function (tree: Tree) {
+            debug('create package.json');
+            tree.create('package.json', '{}');
+            return tree;
+          },
+    // check .npmrc
+    (tree) =>
+      tree.exists('.npmrc')
+        ? noop()
+        : mergeWith(
+            apply(url('./files'), [
+              contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
+            ])
+          ),
     options.enableYarn ? schematic('toolchain-yarn', _options) : noop(),
     options.enableNvm ? schematic('toolchain-nvm', _options) : noop(),
     function (tree: Tree, context: SchematicContext) {

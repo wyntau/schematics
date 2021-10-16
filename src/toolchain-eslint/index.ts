@@ -9,8 +9,7 @@ import { IToolchainEslintOptions } from './schema';
 export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-eslint');
   return chain([
-    mergeWith(url('./files')),
-
+    (tree) => (tree.exists('.eslintrc.json') ? noop() : mergeWith(url('./files'))),
     addPackageJsonDependency(['eslint'], NodeDependencyType.Dev),
 
     options.toolchainTypescript
