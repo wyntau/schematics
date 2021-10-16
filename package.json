@@ -6,6 +6,7 @@
     "clean": "rm -rf dist && git checkout -- dist",
     "watch": "npm run build -- --watch",
     "build": "tsc -p tsconfig.json",
+    "build:publish": "tsc -p tsconfig.publish.json",
     "test": "jasmine dist/**/*_spec.js",
     "lint": "npm run eslint",
     "eslint": "DEBUG=eslint:cli-engine eslint src",
