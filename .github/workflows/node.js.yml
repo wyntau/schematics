@@ -28,4 +28,5 @@ jobs:
         cache: 'yarn'
     - run: yarn
     - run: npm run lint
-    - run: npm run build
+    - run: npm run preview
+    - run: npm run test
