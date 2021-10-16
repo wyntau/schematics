@@ -64,10 +64,11 @@
       "description": "A blank schematic.",
       "factory": "./toolchain-lint-recently/index#toolchainLintRecently"
     },
-    "run-task": {
+    "task": {
       "description": "A blank schematic.",
-      "factory": "./run-task/index#runTask",
-      "hidden": true
+      "factory": "./task/index#runTask",
+      "hidden": true,
+      "private": true
     }
   }
 }
