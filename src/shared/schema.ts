@@ -52,7 +52,7 @@ export function unprefixedOptions<T extends Record<string, any>, U extends strin
 ): UnprefixedOptions<T, U> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur) => {
     if (cur.indexOf(prefix) == 0) {
-      const key = cur.substr(0, prefix.length + 1);
+      const key = cur.substr(prefix.length + 1);
       if (key) {
         output[key] = input[cur];
       }
