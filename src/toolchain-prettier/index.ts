@@ -1,9 +1,8 @@
-import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { chain, mergeWith, Rule, url } from '@angular-devkit/schematics';
+import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainPrettier(_options: any): Rule {
-  return (tree: Tree, _context: SchematicContext) => {
-    return tree;
-  };
+  return chain([mergeWith(url('./files')), addPackageJsonDependency(['prettier'], NodeDependencyType.Dev)]);
 }
