@@ -1,4 +1,4 @@
-import { apply, chain, contentTemplate, mergeWith, Rule, Tree, url } from '@angular-devkit/schematics';
+import { apply, chain, contentTemplate, mergeWith, Rule, url } from '@angular-devkit/schematics';
 import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainLernaOptions } from './schema';
@@ -10,8 +10,5 @@ export function toolchainLerna(_options: IToolchainLernaOptions): Rule {
   return chain([
     addPackageJsonDependency(['lerna'], NodeDependencyType.Dev),
     mergeWith(apply(url('./files'), [contentTemplate({ npmClient: options.toolchainYarn ? 'yarn' : 'npm' })])),
-    function (tree: Tree) {
-      return tree;
-    },
   ]);
 }
