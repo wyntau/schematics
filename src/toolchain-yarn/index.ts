@@ -1,4 +1,5 @@
-import { apply, contentTemplate, mergeWith, noop, Rule, url } from '@angular-devkit/schematics';
+import { apply, contentTemplate, Rule, url } from '@angular-devkit/schematics';
+import { mergeWithIfNotExist } from '../shared/rules/files';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainYarnOptions } from './schema';
 
@@ -6,9 +7,5 @@ import { IToolchainYarnOptions } from './schema';
 // per file.
 export function toolchainYarn(_options: IToolchainYarnOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-yarn');
-  return function (tree) {
-    return tree.exists('.yarnrc')
-      ? noop()
-      : mergeWith(apply(url('./files'), [contentTemplate({ registry: options.withRegistry })]));
-  };
+  return mergeWithIfNotExist(apply(url('./files'), [contentTemplate({ registry: options.withRegistry })]));
 }
