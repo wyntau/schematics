@@ -4,7 +4,7 @@ import {
   NodeDependencyType,
 } from '@schematics/angular/utility/dependencies';
 import { latestVersions } from '../latest-versions';
-import { cyan } from 'colorette';
+import { cyan, redBright } from 'colorette';
 import debugLib from 'debug';
 
 export { NodeDependencyType } from '@schematics/angular/utility/dependencies';
@@ -20,7 +20,7 @@ export function addPackageJsonDependency(
       const packageVersion = latestVersions[packageName];
 
       if (!packageVersion) {
-        debug(`can't find dependency ${cyan(packageName)}`);
+        debug(`can't find dependency ${redBright(packageName)}`);
         return;
       }
 
