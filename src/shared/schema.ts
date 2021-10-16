@@ -47,11 +47,14 @@ export type PrefixedOptions<T extends Record<string, any>, Keys extends string, 
 
 export function unprefixedOptions<T extends Record<string, any>, U extends string>(
   input: T,
-  prefix: U
+  prefix: U | Array<U>
 ): UnprefixedOptions<T, U> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur) => {
-    if (cur.indexOf(prefix) == 0) {
-      const key = cur.substr(prefix.length + 1);
+    const prefixs = Array.isArray(prefix) ? prefix : [prefix];
+    const targetPrefix = prefixs.find((item) => cur.indexOf(item) === 0);
+
+    if (targetPrefix) {
+      const key = cur.substr(targetPrefix.length + 1);
       if (key) {
         output[key] = input[cur];
       }
