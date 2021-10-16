@@ -3,7 +3,7 @@
   "$id": "toolchainYarnSchema",
   "type": "object",
   "properties": {
-    "registry": {
+    "with-registry": {
       "type": "string",
       "description": "the registry used",
       "default": "https://registry.npmmirror.com",

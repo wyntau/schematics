@@ -24,7 +24,7 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
       ? addPackageJsonDependency(['eslint-config-prettier', 'eslint-plugin-prettier', 'prettier'])
       : noop(),
 
-    options.target === 'react' || options.target === 'react-with-jsx-runtime'
+    options.target === 'react' || options.target === 'react-enable-jsx-runtime'
       ? addPackageJsonDependency(['eslint-plugin-react', 'eslint-plugin-react-hooks'], NodeDependencyType.Dev)
       : options.target === 'vue'
       ? addPackageJsonDependency(['eslint-plugin-vue', 'vue-eslint-parser'], NodeDependencyType.Dev)
@@ -49,12 +49,12 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
 
       switch (options.target) {
         case 'react':
-        case 'react-with-jsx-runtime': {
+        case 'react-enable-jsx-runtime': {
           const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
           eslintrcJson.modify(
             ['extends'],
             extendsArray.concat(
-              options.target === 'react-with-jsx-runtime'
+              options.target === 'react-enable-jsx-runtime'
                 ? ['plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended']
                 : ['plugin:react/recommended', 'plugin:react-hooks/recommended']
             )

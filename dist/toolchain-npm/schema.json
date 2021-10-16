@@ -10,18 +10,18 @@
       "enum": ["https://registry.npmjs.org", "https://registry.npmmirror.com", "http://r.npm.sankuai.com"],
       "x-prompt": "选择需要使用的 registry 源"
     },
-    "with-engine-strict": {
+    "enable-engine-strict": {
       "type": "boolean",
       "description": "npm check engines strict",
       "default": true
     },
-    "with-yarn": {
+    "enable-yarn": {
       "type": "boolean",
       "default": true,
       "description": "enable yarn support",
       "x-prompt": "添加 yarn 支持， 生成 .yarnrc"
     },
-    "with-nvm": {
+    "enable-nvm": {
       "type": "boolean",
       "default": true,
       "description": "enable nvm support",

@@ -26,7 +26,7 @@
       "type": "string",
       "description": "目标平台",
       "default": "node",
-      "enum": ["node", "react", "react-with-jsx-runtime", "vue"],
+      "enum": ["node", "react", "react-enable-jsx-runtime", "vue"],
       "x-prompt": {
         "message": "请选择目标平台",
         "type": "list",
@@ -40,8 +40,8 @@
             "value": "react"
           },
           {
-            "label": "react with jsx runtime",
-            "value": "react-with-jsx-runtime"
+            "label": "react with jsx runtime enabled",
+            "value": "react-enable-jsx-runtime"
           },
           {
             "label": "vue",

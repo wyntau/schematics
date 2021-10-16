@@ -1,3 +1,3 @@
 export interface IToolchainYarnOptions {
-  registry: string;
+  'with-registry': string;
 }
