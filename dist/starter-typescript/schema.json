@@ -11,8 +11,8 @@
         "message": "选择需要使用的技术栈",
         "type": "list",
         "items": [
-          { "label": "yarn", "value": "yarn" },
-          { "label": "nvm", "value": "nvm" },
+          { "label": "yarn", "value": "npm-with-yarn" },
+          { "label": "nvm", "value": "npm-with-nvm" },
 
           { "label": "ESLint", "value": "eslint" },
           { "label": "Prettier", "value": "prettier" },

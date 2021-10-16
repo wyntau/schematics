@@ -5,24 +5,20 @@ import { IStarterTypescriptOptions } from './schema';
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function starterTypescript(_options: IStarterTypescriptOptions): Rule {
-  const rawOptions: Record<string, any> = {};
-  _options.toolchain.concat(['npm', 'typescript']).forEach((item) => (rawOptions[`toolchain-${item}`] = true));
-  rawOptions[`target-${_options.target}`] = true;
+  const { toolchain, target, ...others } = _options;
+
+  const rawOptions: Record<string, any> = others;
+  toolchain.concat(['npm', 'typescript']).forEach((item) => (rawOptions[`toolchain-${item}`] = true));
+  rawOptions[`target-${target}`] = true;
 
   const options: Record<string, any> = camelCasedOptions(rawOptions, 'starter-typescript');
 
   return chain([
-    schematic('toolchain-npm', {}),
-    schematic('toolchain-typescript', {}),
-
-    options.toolchainNvm ? schematic('toolchain-nvm', unprefixedOptions(rawOptions, 'toolchain-nvm')) : noop(),
-    options.toolchainYarn ? schematic('toolchain-yarn', unprefixedOptions(rawOptions, 'toolchain-yarn')) : noop(),
+    schematic('toolchain-npm', unprefixedOptions(rawOptions, 'toolchain-npm')),
+    schematic('toolchain-typescript', unprefixedOptions(rawOptions, 'toolchain-typescript')),
 
     options.toolchainEslint
-      ? schematic(
-          'toolchain-eslint',
-          Object.assign({ target: _options.target }, unprefixedOptions(rawOptions, 'toolchain-eslint'))
-        )
+      ? schematic('toolchain-eslint', Object.assign({ target }, unprefixedOptions(rawOptions, 'toolchain-eslint')))
       : noop(),
     options.toolchainPrettier
       ? schematic('toolchain-prettier', unprefixedOptions(rawOptions, 'toolchain-prettier'))
