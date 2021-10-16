@@ -1,15 +1,34 @@
 import { chain, noop, Rule, schematic } from '@angular-devkit/schematics';
 import { camelCasedOptions, unprefixedOptions } from '../shared/schema';
 import { IStarterJavascriptOptions } from './schema';
+import debugLib from 'debug';
+
+const debug = debugLib('@wyntau/schematics:starter-javascript');
+
+const falsyOptions = [
+  'npm',
+  'commitlint',
+  'eslint',
+  'husky',
+  'lerna',
+  'lint-recently',
+  'lint-staged',
+  'nvm',
+  'patch-package',
+  'prettier',
+  'yarn',
+].reduce<Record<string, boolean>>((options, key) => ((options[`toolchain-${key}`] = false), options), {});
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function starterJavascript(_options: IStarterJavascriptOptions): Rule {
   const { toolchain, target, ...others } = _options;
 
-  const rawOptions: Record<string, any> = others;
+  const rawOptions: Record<string, any> = Object.assign({}, falsyOptions, others);
   toolchain.concat(['npm']).forEach((item) => (rawOptions[`toolchain-${item}`] = true));
   rawOptions[`target-${target}`] = true;
+
+  debug('received options %O', rawOptions);
 
   const options: Record<string, any> = camelCasedOptions(rawOptions, 'starter-javascript');
 
