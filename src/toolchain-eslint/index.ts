@@ -21,7 +21,10 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
       : noop(),
 
     options.toolchainPrettier
-      ? addPackageJsonDependency(['eslint-config-prettier', 'eslint-plugin-prettier', 'prettier'])
+      ? addPackageJsonDependency(
+          ['eslint-config-prettier', 'eslint-plugin-prettier', 'prettier'],
+          NodeDependencyType.Dev
+        )
       : noop(),
 
     options.target === 'react' || options.target === 'react-enable-jsx-runtime'
@@ -41,29 +44,34 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
         eslintrcJson.modify(['parser'], '@typescript-eslint/parser');
 
         const parserOptionsProject = (eslintrcJson.get(['parserOptions', 'project']) || []) as Array<string>;
-        eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject.concat('./tsconfig.json'));
+        if (parserOptionsProject.indexOf('./tsconfig.json') < 0) {
+          eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject.concat('./tsconfig.json'));
+        }
 
         const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-        eslintrcJson.modify(['extends'], extendsArray.concat(['plugin:@typescript-eslint/recommended']));
+        if (extendsArray.indexOf('plugin:@typescript-eslint/recommended') < 0) {
+          eslintrcJson.modify(['extends'], extendsArray.concat('plugin:@typescript-eslint/recommended'));
+        }
       }
 
       switch (options.target) {
         case 'react':
         case 'react-enable-jsx-runtime': {
           const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-          eslintrcJson.modify(
-            ['extends'],
-            extendsArray.concat(
-              options.target === 'react-enable-jsx-runtime'
-                ? ['plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended']
-                : ['plugin:react/recommended', 'plugin:react-hooks/recommended']
-            )
-          );
+          const fullArray =
+            options.target === 'react-enable-jsx-runtime'
+              ? ['plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended']
+              : ['plugin:react/recommended', 'plugin:react-hooks/recommended'];
+
+          const appendArray = fullArray.filter((item) => extendsArray.indexOf(item) < 0);
+          eslintrcJson.modify(['extends'], extendsArray.concat(appendArray));
           break;
         }
         case 'vue': {
           const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-          eslintrcJson.modify(['extends'], extendsArray.concat(['plugin:vue/recommended']));
+          if (extendsArray.indexOf('plugin:vue/recommended') < 0) {
+            eslintrcJson.modify(['extends'], extendsArray.concat('plugin:vue/recommended'));
+          }
 
           const originParser = eslintrcJson.get(['parser']) as string;
           originParser && eslintrcJson.modify(['parserOptions', 'parser'], originParser);
@@ -76,7 +84,9 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
 
       if (options.toolchainPrettier) {
         const extendsArray = (eslintrcJson.get(['extends']) || []) as Array<string>;
-        eslintrcJson.modify(['extends'], extendsArray.concat(['plugin:prettier/recommended']));
+        if (extendsArray.indexOf('plugin:prettier/recommended') < 0) {
+          eslintrcJson.modify(['extends'], extendsArray.concat('plugin:prettier/recommended'));
+        }
       }
 
       if (options.toolchainLerna && options.toolchainTypescript) {
