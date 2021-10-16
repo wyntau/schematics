@@ -12,6 +12,7 @@ export function mergeWithIfNotExist(source: Source, strategy?: MergeStrategy): R
             debug('file exists, skip %s', fileEntry.path);
             return null;
           }
+          debug('create file %s', fileEntry.path);
           return fileEntry;
         }),
       ]),
