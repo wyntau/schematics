@@ -6,6 +6,7 @@
     "toolchain": {
       "type": "array",
       "description": "enabled toolchains",
+      "default": ["yarn", "nvm", "eslint", "prettier", "husky", "lint-staged", "commitlint"],
       "x-prompt": {
         "message": "选择需要使用的技术栈",
         "type": "list",
@@ -31,6 +32,7 @@
       "default": "node",
       "description": "target",
       "x-prompt": {
+        "message": "选择生成目标",
         "type": "list",
         "items": [
           { "label": "node", "value": "node" },
