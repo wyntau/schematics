@@ -47,14 +47,15 @@ export type PrefixedOptions<T extends Record<string, any>, Keys extends string, 
 
 export function unprefixedOptions<T extends Record<string, any>, U extends string>(
   input: T,
-  prefix: U | Array<U>
+  prefixs: U | Array<U>
 ): UnprefixedOptions<T, U> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur) => {
-    const prefixs = Array.isArray(prefix) ? prefix : [prefix];
-    const targetPrefix = prefixs.find((item) => cur.indexOf(item) === 0);
+    prefixs = Array.isArray(prefixs) ? prefixs : [prefixs];
+    const prefix = prefixs.find((item) => cur.indexOf(item) === 0);
 
-    if (targetPrefix) {
-      const key = cur.substr(targetPrefix.length + 1);
+    if (prefix) {
+      const key = cur.substr(prefix.length + 1);
+      // 截断后，变为空字符串则不处理，相当于把此选项清除
       if (key) {
         // convert no-xxx to xxx=false
         if (key.indexOf('no-') === 0) {
@@ -69,7 +70,7 @@ export function unprefixedOptions<T extends Record<string, any>, U extends strin
     return output;
   }, {}) as UnprefixedOptions<T, U>;
 
-  debug('unprefixed %s options %O', prefix, options);
+  debug('unprefixed %s options %O', prefixs, options);
   return options;
 }
 
