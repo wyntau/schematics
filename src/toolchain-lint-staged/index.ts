@@ -9,7 +9,7 @@ import { camelCasedOptions } from '../shared/schema';
 export function toolchainLintStaged(_options: IToolchainLintStagedOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-lint-staged');
   return chain([
-    mergeWith(url('./files')),
+    (tree) => (tree.exists('.lintstagedrc.json') ? noop() : mergeWith(url('./files'))),
     addPackageJsonDependency(['lint-staged'], NodeDependencyType.Dev),
     options.toolchainHusky ? addTask('pre-commit', 'npx lint-staged') : noop(),
   ]);

@@ -9,7 +9,7 @@ import { camelCasedOptions } from '../shared/schema';
 export function toolchainCommitlint(_options: IToolchainCommitlintOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-commitlint');
   return chain([
-    mergeWith(url('./files')),
+    (tree) => (tree.exists('.commitlintrc.json') ? noop() : mergeWith(url('./files'))),
     addPackageJsonDependency(['@commitlint/cli', '@commitlint/config-conventional'], NodeDependencyType.Dev),
     options.toolchainHusky ? addTask('commit-msg', 'npx commitlint --edit "$1"') : noop(),
   ]);
