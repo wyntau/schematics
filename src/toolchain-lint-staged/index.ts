@@ -7,7 +7,7 @@ import { camelCasedOptions } from '../shared/schema';
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainLintStaged(_options: IToolchainLintStagedOptions): Rule {
-  const options = camelCasedOptions(_options);
+  const options = camelCasedOptions(_options, 'toolchain-lint-staged');
   return chain([
     mergeWith(url('./files')),
     addPackageJsonDependency(['lint-staged'], NodeDependencyType.Dev),

@@ -4,23 +4,23 @@ import { strings } from '@angular-devkit/core';
 
 const debug = debugLib('@wyntau/schematics:shared/schema');
 
-export function camelCasedOptions<T extends Record<string, any>>(input: T): CamelCasedProperties<T> {
+export function camelCasedOptions<T extends Record<string, any>>(input: T, section = ''): CamelCasedProperties<T> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur: string) => {
     output[strings.camelize(cur)] = input[cur];
     return output;
   }, {}) as CamelCasedProperties<T>;
 
-  debug('normalized options %o', options);
+  debug('camelCased %s options %O', section, options);
   return options;
 }
 
-export function kebabCasedOptions<T extends Record<string, any>>(input: T): KebabCasedProperties<T> {
+export function kebabCasedOptions<T extends Record<string, any>>(input: T, section = ''): KebabCasedProperties<T> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur: string) => {
     output[strings.dasherize(cur)] = input[cur];
     return output;
   }, {}) as KebabCasedProperties<T>;
 
-  debug('normalized options %o', options);
+  debug('kebabCased %s options %O', section, options);
   return options;
 }
 
@@ -64,7 +64,7 @@ export function unprefixedOptions<T extends Record<string, any>, U extends strin
     return output;
   }, {}) as UnprefixedOptions<T, U>;
 
-  debug('unprefixed %s options %o', prefix, options);
+  debug('unprefixed %s options %O', prefix, options);
   return options;
 }
 
@@ -82,7 +82,7 @@ export function prefixedOptions<T extends Record<string, any>, Keys extends stri
     return output;
   }, {}) as PrefixedOptions<T, Keys, Pattern>;
 
-  debug('prefixed %s options %o', pattern, options);
+  debug('prefixed %s options %O', pattern, options);
   return options;
 }
 
@@ -90,7 +90,7 @@ export function specializedOptions<T extends Record<string, any>, Prefix extends
   options: T,
   prefix: Prefix
 ): CamelCasedProperties<UnprefixedOptions<T, Prefix>> {
-  return camelCasedOptions(unprefixedOptions(options, prefix));
+  return camelCasedOptions(unprefixedOptions(options, prefix), prefix);
 }
 
 export function normalizedOptions<T extends Record<string, any>, Keys extends string, Pattern extends string>(
@@ -98,5 +98,5 @@ export function normalizedOptions<T extends Record<string, any>, Keys extends st
   keys: Array<Keys>,
   pattern: Pattern
 ): KebabCasedProperties<PrefixedOptions<T, Keys, Pattern>> {
-  return kebabCasedOptions(prefixedOptions<T, Keys, Pattern>(options, keys, pattern));
+  return kebabCasedOptions(prefixedOptions<T, Keys, Pattern>(options, keys, pattern), pattern);
 }
