@@ -8,7 +8,11 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-npm');
 
   return chain([
-    mergeWith(apply(url('./files'), [contentTemplate(options)])),
+    mergeWith(
+      apply(url('./files'), [
+        contentTemplate({ registry: options.withRegistry, engineStrict: options.withEngineStrict }),
+      ])
+    ),
     options.withYarn ? schematic('toolchain-yarn', options) : noop(),
     options.withNvm ? schematic('toolchain-nvm', {}) : noop(),
   ]);

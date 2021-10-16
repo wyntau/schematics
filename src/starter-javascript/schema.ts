@@ -1,7 +1,7 @@
 export interface IStarterJavascriptOptions {
+  'toolchain-typescript': boolean;
   toolchain: Array<
     | 'npm'
-    | 'typescript'
     | 'commitlint'
     | 'eslint'
     | 'husky'
