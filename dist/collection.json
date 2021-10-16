@@ -66,7 +66,8 @@
     },
     "starter-typescript": {
       "description": "A blank schematic.",
-      "factory": "./starter-typescript/index#starterTypescript"
+      "factory": "./starter-typescript/index#starterTypescript",
+      "schema": "./starter-typescript/schema.json"
     },
     "starter-miniprogram": {
       "description": "A blank schematic.",

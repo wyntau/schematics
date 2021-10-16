@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "starterTypescriptSchema",
+  "type": "object",
+  "properties": {
+    "toolchain": {
+      "type": "array",
+      "description": "enabled toolchains",
+      "x-prompt": {
+        "message": "选择需要使用的技术栈",
+        "type": "list",
+        "items": [
+          { "label": "yarn", "value": "yarn" },
+          { "label": "nvm", "value": "nvm" },
+
+          { "label": "ESLint", "value": "eslint" },
+          { "label": "Prettier", "value": "prettier" },
+
+          { "label": "Husky", "value": "husky" },
+          { "label": "lint-staged", "value": "lint-staged" },
+          { "label": "commitlint", "value": "commitlint" },
+
+          { "label": "patch-package", "value": "patch-package" },
+          { "label": "lerna", "value": "lerna" },
+          { "label": "lint-recently", "value": "lint-recently" }
+        ]
+      }
+    },
+    "target": {
+      "type": "string",
+      "default": "node",
+      "description": "target",
+      "x-prompt": {
+        "type": "list",
+        "items": [
+          { "label": "node", "value": "node" },
+          { "label": "React", "value": "react" },
+          { "label": "React with jsx runtime", "value": "react-with-jsx-runtime" },
+          { "label": "Vue", "value": "vue" }
+        ]
+      }
+    }
+  }
+}
