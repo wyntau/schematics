@@ -6,14 +6,11 @@
     "toolchain": {
       "type": "array",
       "description": "enabled toolchains",
-      "default": ["yarn", "nvm", "eslint", "prettier", "husky", "lint-staged", "commitlint"],
+      "default": ["eslint", "prettier", "husky", "lint-staged", "commitlint"],
       "x-prompt": {
         "message": "选择需要使用的技术栈",
         "type": "list",
         "items": [
-          { "label": "yarn", "value": "npm-with-yarn" },
-          { "label": "nvm", "value": "npm-with-nvm" },
-
           { "label": "ESLint", "value": "eslint" },
           { "label": "Prettier", "value": "prettier" },
 

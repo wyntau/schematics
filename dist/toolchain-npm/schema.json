@@ -18,12 +18,14 @@
     "with-yarn": {
       "type": "boolean",
       "default": true,
-      "description": "添加 yarn 支持， 生成 .yarnrc"
+      "description": "enable yarn support",
+      "x-prompt": "添加 yarn 支持， 生成 .yarnrc"
     },
     "with-nvm": {
       "type": "boolean",
       "default": true,
-      "description": "添加 nvm 支持，生成 .nvmrc"
+      "description": "enable nvm support",
+      "x-prompt": "添加 nvm 支持，生成 .nvmrc"
     }
   }
 }
