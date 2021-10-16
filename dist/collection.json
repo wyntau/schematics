@@ -60,7 +60,8 @@
     },
     "toolchain-yarn": {
       "description": "A blank schematic.",
-      "factory": "./toolchain-yarn/index#toolchainYarn"
+      "factory": "./toolchain-yarn/index#toolchainYarn",
+      "schema": "./toolchain-yarn/schema.json"
     },
     "starter-typescript": {
       "description": "A blank schematic.",
