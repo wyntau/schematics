@@ -1,3 +1,5 @@
+import { SchematicContext, Tree } from '@angular-devkit/schematics';
+
 export interface IRunTaskOptions {
-  run: () => Promise<any>;
+  run: (tree: Tree, context: SchematicContext) => any;
 }
