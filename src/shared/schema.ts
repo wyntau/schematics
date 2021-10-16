@@ -38,7 +38,7 @@ type Prefix<
 > = T extends Keys ? `${Pattern}${Delimiter}${T}` : T;
 
 export type UnprefixedOptions<T extends Record<string, any>, Prefix extends string> = {
-  [P in keyof T as Unprefix<P, Prefix>]: T[P];
+  [P in keyof T as Unprefix<Unprefix<P, Prefix>, 'no'>]: T[P];
 };
 
 export type PrefixedOptions<T extends Record<string, any>, Keys extends string, Pattern extends string> = {
@@ -56,7 +56,12 @@ export function unprefixedOptions<T extends Record<string, any>, U extends strin
     if (targetPrefix) {
       const key = cur.substr(targetPrefix.length + 1);
       if (key) {
-        output[key] = input[cur];
+        // convert no-xxx to xxx=false
+        if (key.indexOf('no-') === 0) {
+          output[key.substr(3)] = false;
+        } else {
+          output[key] = input[cur];
+        }
       }
     } else {
       output[cur] = input[cur];
