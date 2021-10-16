@@ -12,10 +12,7 @@ import {
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainNpmOptions } from './schema';
-import debugLib from 'debug';
 import { mergeWithIfNotExist } from '../shared/rules/files';
-
-const debug = debugLib('@wyntau/schematics:toolchain-npm');
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
@@ -23,15 +20,6 @@ export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-npm');
 
   return chain([
-    // check package.json
-    (tree) =>
-      tree.exists('package.json')
-        ? noop()
-        : function (tree: Tree) {
-            debug('create package.json');
-            tree.create('package.json', '{}');
-            return tree;
-          },
     mergeWithIfNotExist(
       apply(url('./files'), [
         contentTemplate({ registry: options.withRegistry, engineStrict: options.enableEngineStrict }),
