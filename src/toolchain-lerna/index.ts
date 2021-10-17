@@ -4,14 +4,14 @@ import { mergeWithIfNotExist } from '../shared/rules/files';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainLernaOptions } from './schema';
 import { dependencies } from './latest-versions/package.json';
-import { getSchematicOptions } from '../shared/utility/options';
+import { sharedOptionsOf } from '../shared/utility/sharedOptions';
 import { IToolchainNpmOptions } from '../toolchain-npm/schema';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainLerna(_options: IToolchainLernaOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-lerna');
-  const toolchainNpmOptions = getSchematicOptions<IToolchainNpmOptions>('toolchain-npm');
+  const toolchainNpmOptions = sharedOptionsOf<IToolchainNpmOptions>('toolchain-npm');
   return chain([
     addPackageJsonDependency(dependencies, ['lerna'], NodeDependencyType.Dev),
     mergeWithIfNotExist(
