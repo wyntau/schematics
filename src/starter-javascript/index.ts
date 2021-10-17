@@ -13,10 +13,8 @@ const falsyOptions = [
   'lerna',
   'lint-recently',
   'lint-staged',
-  'nvm',
   'patch-package',
   'prettier',
-  'yarn',
 ].reduce<Record<string, boolean>>((options, key) => ((options[`toolchain-${key}`] = false), options), {});
 
 // You don't have to export the function as default. You can also have more than one rule factory

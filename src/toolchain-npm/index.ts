@@ -13,10 +13,13 @@ import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainNpmOptions } from './schema';
 import { mergeWithIfNotExist } from '../shared/rules/files';
+import { setSchematicOptions } from '../shared/utility/options';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
+  setSchematicOptions('toolchain-npm', _options);
+
   const options = camelCasedOptions(_options, 'toolchain-npm');
 
   return chain([
