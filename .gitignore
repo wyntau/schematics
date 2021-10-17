@@ -1,4 +1,5 @@
 # Outputs
+dist/collection.json
 dist/*/*
 !dist/*/files
 
