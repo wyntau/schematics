@@ -293,7 +293,7 @@
     "@angular-devkit/schematics" "12.2.9"
     jsonc-parser "3.0.0"
 
-"@types/debug@^4.1.7":
+"@types/debug@4.1.7":
   version "4.1.7"
   resolved "https://registry.npmmirror.com/@types/debug/download/@types/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
   integrity sha1-fMDqdhUJEkcJuLLRCQ2PbBeq24I=
