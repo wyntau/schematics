@@ -19,16 +19,29 @@ const falsyOptions = optionKeys.reduce<Record<string, boolean>>(
   {}
 );
 
+type ItemTypeOf<T extends Array<any>> = T extends Array<infer U> ? U : never;
+
+type ExcludeToolchainKeys = Exclude<keyof IStarterJavascriptOptions, 'toolchain'>;
+type ToolchainChildKeys = `toolchain-${ItemTypeOf<IStarterJavascriptOptions['toolchain']> | 'npm'}`;
+type RawOptions = Partial<
+  {
+    [P in ExcludeToolchainKeys]: IStarterJavascriptOptions[P];
+  } & {
+    [P in ToolchainChildKeys]: boolean;
+  }
+>;
+
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function starterJavascript(_options: IStarterJavascriptOptions): Rule {
-  const { toolchain, target, ...others } = _options;
+  debug('received options %O', _options);
 
-  const rawOptions: Record<string, any> = Object.assign({ 'toolchain-npm': true }, falsyOptions, others);
+  const { toolchain, ...others } = _options;
+
+  const rawOptions: RawOptions = Object.assign({ 'toolchain-npm': true }, falsyOptions, others);
   toolchain.forEach((item) => (rawOptions[`toolchain-${item}`] = true));
-  rawOptions[`target-${target}`] = true;
 
-  debug('received options %O', rawOptions);
+  debug('populated options %O', rawOptions);
 
   const options: Record<string, any> = camelCasedOptions(rawOptions, 'starter-javascript');
 
@@ -39,9 +52,7 @@ export function starterJavascript(_options: IStarterJavascriptOptions): Rule {
       ? schematic('toolchain-typescript', unprefixedOptions(rawOptions, 'toolchain-typescript'))
       : noop(),
 
-    options.toolchainEslint
-      ? schematic('toolchain-eslint', Object.assign({ target }, unprefixedOptions(rawOptions, 'toolchain-eslint')))
-      : noop(),
+    options.toolchainEslint ? schematic('toolchain-eslint', unprefixedOptions(rawOptions, 'toolchain-eslint')) : noop(),
     options.toolchainPrettier
       ? schematic('toolchain-prettier', unprefixedOptions(rawOptions, 'toolchain-prettier'))
       : noop(),
