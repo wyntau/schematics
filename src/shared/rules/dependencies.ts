@@ -4,11 +4,11 @@ import {
   NodeDependencyType,
 } from '@schematics/angular/utility/dependencies';
 import { cyan, redBright } from 'colorette';
-import debugLib from 'debug';
+import { debugLib } from '../utility/debug';
 
 export { NodeDependencyType } from '@schematics/angular/utility/dependencies';
 
-const debug = debugLib('@wyntau/schematics:shared/rules/dependencies');
+const debug = debugLib('shared/rules/dependencies');
 
 export function addPackageJsonDependency<T extends Record<string, string>>(
   latestVersions: T,

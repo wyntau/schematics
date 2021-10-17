@@ -1,7 +1,7 @@
 import { apply, forEach, MergeStrategy, mergeWith, Rule, Source, Tree } from '@angular-devkit/schematics';
-import debugLib from 'debug';
+import { debugLib } from '../utility/debug';
 
-const debug = debugLib('@wyntau/schematics:shared/rules/files');
+const debug = debugLib('shared/rules/files');
 
 export function mergeWithIfNotExist(source: Source, strategy?: MergeStrategy): Rule {
   return function (tree: Tree) {

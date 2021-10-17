@@ -1,9 +1,9 @@
 import { chain, noop, Rule, schematic } from '@angular-devkit/schematics';
 import { camelCasedOptions, unprefixedOptions } from '../shared/schema';
 import { IStarterJavascriptOptions } from './schema';
-import debugLib from 'debug';
+import { debugLib } from '../shared/utility/debug';
 
-const debug = debugLib('@wyntau/schematics:starter-javascript');
+const debug = debugLib('starter-javascript');
 const optionKeys: IStarterJavascriptOptions['toolchain'] = [
   'commitlint',
   'eslint',

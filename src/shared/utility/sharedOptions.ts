@@ -1,7 +1,7 @@
 import { schematics } from '../../collection.json';
-import debugLib from 'debug';
+import { debugLib } from '../utility/debug';
 
-const debug = debugLib('@wyntau/schematics:shared/utility/sharedOptions');
+const debug = debugLib('shared/utility/sharedOptions');
 const optionsMap: Partial<Record<keyof typeof schematics, Record<string, any>>> = {};
 
 type SchematicName = keyof typeof schematics;
