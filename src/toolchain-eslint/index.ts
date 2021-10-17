@@ -4,6 +4,7 @@ import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/de
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainEslintOptions } from './schema';
+import { dependencies } from './latest-versions/package.json';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
@@ -11,10 +12,11 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
   const options = camelCasedOptions(_options, 'toolchain-eslint');
   return chain([
     mergeWithIfNotExist(url('./files')),
-    addPackageJsonDependency(['eslint'], NodeDependencyType.Dev),
+    addPackageJsonDependency(dependencies, ['eslint'], NodeDependencyType.Dev),
 
     options.toolchainTypescript
       ? addPackageJsonDependency(
+          dependencies,
           ['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser', 'typescript'],
           NodeDependencyType.Dev
         )
@@ -22,15 +24,20 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
 
     options.toolchainPrettier
       ? addPackageJsonDependency(
+          dependencies,
           ['eslint-config-prettier', 'eslint-plugin-prettier', 'prettier'],
           NodeDependencyType.Dev
         )
       : noop(),
 
     options.target === 'react' || options.target === 'react-enable-jsx-runtime'
-      ? addPackageJsonDependency(['eslint-plugin-react', 'eslint-plugin-react-hooks'], NodeDependencyType.Dev)
+      ? addPackageJsonDependency(
+          dependencies,
+          ['eslint-plugin-react', 'eslint-plugin-react-hooks'],
+          NodeDependencyType.Dev
+        )
       : options.target === 'vue'
-      ? addPackageJsonDependency(['eslint-plugin-vue', 'vue-eslint-parser'], NodeDependencyType.Dev)
+      ? addPackageJsonDependency(dependencies, ['eslint-plugin-vue', 'vue-eslint-parser'], NodeDependencyType.Dev)
       : noop(),
 
     function (tree: Tree) {

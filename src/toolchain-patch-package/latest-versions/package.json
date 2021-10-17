@@ -1,0 +1,9 @@
+{
+  "description": "Package versions used by schematics.",
+  "comment": "This file is needed so that depedencies are synced by Renovate.",
+  "private": true,
+  "dependencies": {
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
+  }
+}

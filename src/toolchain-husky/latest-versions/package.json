@@ -1,0 +1,8 @@
+{
+  "description": "Package versions used by schematics.",
+  "comment": "This file is needed so that depedencies are synced by Renovate.",
+  "private": true,
+  "dependencies": {
+    "husky": "^7.0.2"
+  }
+}

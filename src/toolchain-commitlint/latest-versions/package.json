@@ -1,0 +1,9 @@
+{
+  "description": "Package versions used by schematics.",
+  "comment": "This file is needed so that depedencies are synced by Renovate.",
+  "private": true,
+  "dependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0"
+  }
+}

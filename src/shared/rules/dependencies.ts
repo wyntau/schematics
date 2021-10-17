@@ -3,7 +3,6 @@ import {
   addPackageJsonDependency as _addPackageJsonDependency,
   NodeDependencyType,
 } from '@schematics/angular/utility/dependencies';
-import { latestVersions } from '../latest-versions';
 import { cyan, redBright } from 'colorette';
 import debugLib from 'debug';
 
@@ -11,12 +10,14 @@ export { NodeDependencyType } from '@schematics/angular/utility/dependencies';
 
 const debug = debugLib('@wyntau/schematics:shared/rules/dependencies');
 
-export function addPackageJsonDependency(
-  packageNames: Array<string>,
+export function addPackageJsonDependency<T extends Record<string, string>>(
+  latestVersions: T,
+  packageNames: Array<keyof T> = Object.keys(latestVersions),
   type: NodeDependencyType = NodeDependencyType.Default
 ) {
   return function (tree: Tree): Tree {
-    packageNames.forEach((packageName) => {
+    packageNames.forEach((_packageName) => {
+      const packageName = _packageName as string;
       const packageVersion = latestVersions[packageName];
 
       if (!packageVersion) {
