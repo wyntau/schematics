@@ -11,7 +11,7 @@
       "groupName": "jasmine"
     },
     {
-      "matchPaths": ["dist/shared/latest-versions/package.json"],
+      "matchPaths": ["src/*/latest-versions/package.json"],
       "matchPackagePatterns": ["*"],
       "groupName": "schematics dependencies",
       "lockFileMaintenance": { "enabled": false },
