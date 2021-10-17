@@ -18,9 +18,8 @@ import { shareOptions } from '../shared/utility/sharedOptions';
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
 export function toolchainNpm(_options: IToolchainNpmOptions): Rule {
-  shareOptions('toolchain-npm', _options);
-
   const options = camelCasedOptions(_options, 'toolchain-npm');
+  shareOptions('toolchain-npm', options);
 
   return chain([
     mergeWithIfNotExist(
