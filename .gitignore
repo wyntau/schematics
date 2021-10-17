@@ -1,7 +1,5 @@
 # Outputs
 dist/*/*
-!dist/shared/latest-versions
-!dist/*/schema.json
 !dist/*/files
 
 # IDEs
