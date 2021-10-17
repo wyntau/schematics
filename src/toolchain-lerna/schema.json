@@ -4,11 +4,10 @@
   "title": "toolchain lerna options schema",
   "type": "object",
   "properties": {
-    "toolchain-yarn": {
+    "enable-yarn": {
       "type": "boolean",
-      "default": true,
-      "description": "enable toolchain yarn",
-      "x-prompt": "开启 yarn 工具链支持"
+      "default": false,
+      "description": "enable toolchain yarn"
     }
   }
 }
