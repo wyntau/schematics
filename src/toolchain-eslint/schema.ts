@@ -1,3 +1,4 @@
+export { default as schemaJson } from './schema.json';
 export interface IToolchainEslintOptions {
   'toolchain-typescript': boolean;
   'toolchain-prettier': boolean;

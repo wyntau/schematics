@@ -1,3 +1,4 @@
+export { default as schemaJson } from './schema.json';
 export interface IStarterJavascriptOptions {
   'toolchain-typescript': boolean;
   toolchain: Array<
