@@ -3,6 +3,8 @@ import { JSONFile } from '@schematics/angular/utility/json-file';
 import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { dependencies } from './latest-versions/package.json';
+import { addTask } from 'schematics-task';
+import execa from 'execa';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
@@ -15,5 +17,8 @@ export function toolchainHusky(): Rule {
       packageJson.modify(['scripts', 'prepare'], 'husky install || exit 0');
       return tree;
     },
+    addTask(async () => {
+      await execa('chmod', ['+x', '.husky/pre-commit', '.husky/commit-msg']);
+    }),
   ]);
 }

@@ -2044,6 +2044,14 @@ safe-buffer@~5.2.0:
   resolved "https://registry.npmmirror.com/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
+schematics-task@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.npmmirror.com/schematics-task/download/schematics-task-0.2.7.tgz#3498d9f9d56bc41a9b40379c9026711f600c7ddb"
+  integrity sha1-NJjZ+dVrxBqbQDeckCZxH2AMfds=
+  dependencies:
+    debug "^4.3.2"
+    tslib "^2.3.1"
+
 semver-compare@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/semver-compare/download/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
