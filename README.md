@@ -8,6 +8,10 @@ This repository have some handy schematics you can use to start a project quickl
 # install dependencies globally
 yarn global add @angular-devkit/schematics-cli @wyntau/schematics
 
+# go to the new or a exist project directory
+mkdir newproject
+cd newproject
+
 # run schematic
 schematics @wyntau/schematics:starter-javascript
 ```
