@@ -15,7 +15,7 @@ export function sharedOptionsOf<T extends Record<string, any>>(
   return sharedOptions;
 }
 
-export function shareOptions(schematicName: SchematicName, options: Record<string, any>) {
+export function shareOptions(schematicName: SchematicName, options: Record<string, any>): Record<string, any> {
   debug('%s shareOptions: %O', schematicName, options);
   return (optionsMap[schematicName] = options);
 }
