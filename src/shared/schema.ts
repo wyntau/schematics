@@ -4,23 +4,23 @@ import { strings } from '@angular-devkit/core';
 
 const debug = debugLib('@wyntau/schematics:shared/schema');
 
-export function camelCasedOptions<T extends Record<string, any>>(input: T, section = ''): CamelCasedProperties<T> {
+export function camelCasedOptions<T extends Record<string, any>>(input: T, requestFrom = ''): CamelCasedProperties<T> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur: string) => {
     output[strings.camelize(cur)] = input[cur];
     return output;
   }, {}) as CamelCasedProperties<T>;
 
-  debug('camelCased %s options %O', section, options);
+  debug('camelCased %s options %O', requestFrom, options);
   return options;
 }
 
-export function kebabCasedOptions<T extends Record<string, any>>(input: T, section = ''): KebabCasedProperties<T> {
+export function kebabCasedOptions<T extends Record<string, any>>(input: T, requestFrom = ''): KebabCasedProperties<T> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur: string) => {
     output[strings.dasherize(cur)] = input[cur];
     return output;
   }, {}) as KebabCasedProperties<T>;
 
-  debug('kebabCased %s options %O', section, options);
+  debug('kebabCased %s options %O', requestFrom, options);
   return options;
 }
 
