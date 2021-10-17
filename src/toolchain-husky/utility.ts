@@ -1,7 +1,7 @@
 import { Rule, Tree } from '@angular-devkit/schematics';
-import debugLib from 'debug';
+import { debugLib } from '../shared/utility/debug';
 
-const debug = debugLib('@wyntau/schematics:toolchain-husky');
+const debug = debugLib('toolchain-husky');
 
 export function addTask(hook: string, script: string): Rule {
   return function (tree: Tree): Tree {

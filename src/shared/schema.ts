@@ -1,8 +1,8 @@
 import { CamelCasedProperties, KebabCasedProperties } from 'type-fest';
-import debugLib from 'debug';
+import { debugLib } from '../shared/utility/debug';
 import { strings } from '@angular-devkit/core';
 
-const debug = debugLib('@wyntau/schematics:shared/schema');
+const debug = debugLib('shared/schema');
 
 export function camelCasedOptions<T extends Record<string, any>>(input: T, requestFrom = ''): CamelCasedProperties<T> {
   const options = Object.keys(input).reduce((output: Record<string, any>, cur: string) => {
