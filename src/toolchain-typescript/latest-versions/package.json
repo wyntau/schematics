@@ -1,0 +1,9 @@
+{
+  "description": "Package versions used by schematics.",
+  "comment": "This file is needed so that depedencies are synced by Renovate.",
+  "private": true,
+  "dependencies": {
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "description": "Package versions used by schematics.",
+  "comment": "This file is needed so that depedencies are synced by Renovate.",
+  "private": true,
+  "dependencies": {
+    "lint-staged": "^11.2.2"
+  }
+}
