@@ -1,4 +1,4 @@
-import { Tree } from '@angular-devkit/schematics';
+import { Rule, Tree } from '@angular-devkit/schematics';
 import {
   addPackageJsonDependency as _addPackageJsonDependency,
   NodeDependencyType,
@@ -14,7 +14,7 @@ export function addPackageJsonDependency<T extends Record<string, string>>(
   latestVersions: T,
   packageNames: Array<keyof T> = Object.keys(latestVersions),
   type: NodeDependencyType = NodeDependencyType.Default
-) {
+): Rule {
   return function (tree: Tree): Tree {
     packageNames.forEach((_packageName) => {
       const packageName = _packageName as string;
