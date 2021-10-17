@@ -1,28 +1,43 @@
-# Getting Started With Schematics
+# @wyntau/schematics
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
+This repository have some handy schematics you can use to start a project quickly.
 
-### Testing
+## Usage
 
-To test locally, install `@angular-devkit/schematics-cli` globally and use the `schematics` command line tool. That tool acts the same as the `generate` command of the Angular CLI, but also has a debug mode.
+```shell
+# install dependencies globally
+yarn global add @angular-devkit/schematics-cli @wyntau/schematics
 
-Check the documentation with
-
-```bash
-schematics --help
+# run schematic
+schematics @wyntau/schematics:starter-javascript
 ```
 
-### Unit Testing
+## Schematics
 
-`npm run test` will run the unit tests, using Jasmine as a runner and test framework.
+### Starter schematics
+These are the real starter you can use to quickly start a project.
 
-### Publishing
+- starter-javascript
 
-To publish, simply do:
+### Toolchain Schematics
 
-```bash
-npm run build
-npm publish
-```
+These are some atom schematics you can combine together to add some toolchains to your new/exist project.
 
-That's it!
+- toolchain-eslint
+- toolchain-husky
+- toolchain-lerna
+- toolchain-lint-recently
+- toolchain-lint-staged
+- toolchain-npm
+- toolchain-nvm
+- toolchain-patch-package
+- toolchain-prettier
+- toolchain-typescript
+- toolchain-yarn
+
+## Use this in your own schematics
+You can see the [`starter-javascript`](src/starter-javascript/index.ts) to find more detail.
+
+
+## License
+MIT
