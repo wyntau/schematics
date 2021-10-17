@@ -17,7 +17,7 @@ export function toolchainHusky(): Rule {
       packageJson.modify(['scripts', 'prepare'], 'husky install || exit 0');
       return tree;
     },
-    addTask(async () => {
+    addTask(async function addExecutePermissionToHuskyFiles() {
       await execa('chmod', ['+x', '.husky/pre-commit', '.husky/commit-msg']);
     }),
   ]);
