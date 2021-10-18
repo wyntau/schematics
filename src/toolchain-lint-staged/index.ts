@@ -1,7 +1,7 @@
 import { chain, noop, Rule, url } from '@angular-devkit/schematics';
 import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
 import { IToolchainLintStagedOptions } from './schema';
-import { addTask } from '../toolchain-husky/utility';
+import { addHookScript } from '../toolchain-husky/utility';
 import { camelCasedOptions } from '../shared/schema';
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { dependencies } from './latest-versions/package.json';
@@ -13,6 +13,6 @@ export function toolchainLintStaged(_options: IToolchainLintStagedOptions): Rule
   return chain([
     mergeWithIfNotExist(url('./files')),
     addPackageJsonDependency(dependencies, ['lint-staged'], NodeDependencyType.Dev),
-    options.toolchainHusky ? addTask('pre-commit', 'npx lint-staged') : noop(),
+    options.toolchainHusky ? addHookScript('pre-commit', 'npx lint-staged') : noop(),
   ]);
 }

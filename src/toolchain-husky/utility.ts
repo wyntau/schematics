@@ -5,7 +5,7 @@ import execa from 'execa';
 
 const debug = debugLib('toolchain-husky');
 
-export function addTask(hook: string, script: string): Rule {
+export function addHookScript(hook: string, script: string): Rule {
   return function (tree: Tree) {
     const hookFile = `.husky/${hook}`;
 
