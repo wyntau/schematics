@@ -24,7 +24,7 @@ export function addHookScript(hook: string, script: string): Rule {
 
     return addSchematicsTask(async function appendHookFile() {
       debug('append hook %s with script: %s', hook, script);
-      await execa('npx', ['husky', 'add', hook, script]);
+      await execa('npx', ['husky', 'add', hookFile, script]);
     });
   };
 }
