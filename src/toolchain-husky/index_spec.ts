@@ -1,6 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import * as path from 'path';
+import { dependencies } from './latest-versions/package.json';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -11,7 +12,7 @@ describe('toolchain-husky', () => {
     root.create('package.json', '{}');
     const tree = await runner.runSchematicAsync('toolchain-husky', {}, root).toPromise();
 
-    expect(tree.files).toContain('/.husky/pre-commit');
-    expect(tree.files).toContain('/.husky/commit-msg');
+    const packageJson = JSON.parse(tree.readContent('package.json'));
+    expect(packageJson.devDependencies.husky === dependencies.husky).toBeTruthy();
   });
 });
