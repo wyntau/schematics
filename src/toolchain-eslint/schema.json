@@ -8,45 +8,33 @@
       "type": "boolean",
       "description": "enable toolchain typescript",
       "default": true,
-      "x-prompt": "开启 typescript 工具链支持"
+      "x-prompt": "Choose to enable Typescript support"
     },
     "toolchain-prettier": {
       "type": "boolean",
       "description": "enable toolchain prettier",
       "default": true,
-      "x-prompt": "开启 prettier 工具链支持"
+      "x-prompt": "Choose to enable prettier support"
     },
     "toolchain-lerna": {
       "type": "boolean",
       "description": "enable toolchain lerna",
       "default": false,
-      "x-prompt": "开启 lerna 工具链支持"
+      "x-prompt": "Choose to enable lerna support"
     },
     "target": {
       "type": "string",
-      "description": "目标平台",
+      "description": "target stack",
       "default": "node",
       "enum": ["node", "react", "react-enable-jsx-runtime", "vue"],
       "x-prompt": {
-        "message": "请选择目标平台",
+        "message": "Choose the target stack",
         "type": "list",
         "items": [
-          {
-            "label": "node",
-            "value": "node"
-          },
-          {
-            "label": "react",
-            "value": "react"
-          },
-          {
-            "label": "react with jsx runtime enabled",
-            "value": "react-enable-jsx-runtime"
-          },
-          {
-            "label": "vue",
-            "value": "vue"
-          }
+          { "label": "Node.js", "value": "node" },
+          { "label": "React", "value": "react" },
+          { "label": "React with jsx runtime enabled", "value": "react-enable-jsx-runtime" },
+          { "label": "Vue", "value": "vue" }
         ]
       }
     }
