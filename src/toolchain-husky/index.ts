@@ -12,7 +12,7 @@ export function toolchainHusky(): Rule {
     addPackageJsonDependency(dependencies, ['husky'], NodeDependencyType.Dev),
     function (tree: Tree) {
       const packageJson = new JSONFile(tree, 'package.json');
-      packageJson.modify(['scripts', 'prepare'], 'husky install || exit 0');
+      packageJson.modify(['scripts', 'prepare'], 'husky install || mkdir .husky || exit 0');
       return tree;
     },
   ]);
