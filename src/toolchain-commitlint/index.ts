@@ -1,7 +1,7 @@
 import { chain, noop, Rule, url } from '@angular-devkit/schematics';
 import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
 import { IToolchainCommitlintOptions } from './schema';
-import { addTask } from '../toolchain-husky/utility';
+import { addHookScript } from '../toolchain-husky/utility';
 import { camelCasedOptions } from '../shared/schema';
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { dependencies } from './latest-versions/package.json';
@@ -13,6 +13,6 @@ export function toolchainCommitlint(_options: IToolchainCommitlintOptions): Rule
   return chain([
     mergeWithIfNotExist(url('./files')),
     addPackageJsonDependency(dependencies, undefined, NodeDependencyType.Dev),
-    options.toolchainHusky ? addTask('commit-msg', 'npx commitlint --edit "$1"') : noop(),
+    options.toolchainHusky ? addHookScript('commit-msg', 'npx commitlint --edit "$1"') : noop(),
   ]);
 }
