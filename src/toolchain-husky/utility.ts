@@ -1,33 +1,30 @@
 import { Rule, Tree } from '@angular-devkit/schematics';
 import { debugLib } from '../shared/utility/debug';
+import { addTask as addSchematicsTask } from 'schematics-task';
+import execa from 'execa';
 
 const debug = debugLib('toolchain-husky');
 
 export function addTask(hook: string, script: string): Rule {
-  return function (tree: Tree): Tree {
+  return function (tree: Tree) {
     const hookFile = `.husky/${hook}`;
 
     if (!tree.exists(hookFile)) {
-      debug(`create hook ${hook}`);
-      tree.create(hookFile, ['#!/bin/sh', '. "$(dirname "$0")/_/husky.sh"', '\n'].join('\n'));
+      return addSchematicsTask(async function createHookFile() {
+        debug('create hook %s with script: %s', hook, script);
+        await execa('npx', ['husky', 'add', hookFile, script]);
+      });
     }
 
-    let hookFileContent = tree.read(hookFile)!.toString();
-
+    const hookFileContent = tree.read(hookFile)!.toString();
     if (hookFileContent.indexOf(script) >= 0) {
-      debug(`task repeated, skip: %s`, script);
+      debug(`exist hook %s have same script, skip: %s`, hook, script);
       return tree;
     }
 
-    if (hookFileContent[hookFileContent.length - 1] !== '\n') {
-      hookFileContent += '\n';
-    }
-
-    hookFileContent += script + '\n';
-    debug(`overwrite %s content:\n%s`, hookFile, hookFileContent);
-
-    tree.overwrite(hookFile, hookFileContent);
-
-    return tree;
+    return addSchematicsTask(async function appendHookFile() {
+      debug('append hook %s with script: %s', hook, script);
+      await execa('npx', ['husky', 'add', hook, script]);
+    });
   };
 }
