@@ -2044,10 +2044,10 @@ safe-buffer@~5.2.0:
   resolved "https://registry.npmmirror.com/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
-schematics-task@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.npmmirror.com/schematics-task/download/schematics-task-0.2.7.tgz#3498d9f9d56bc41a9b40379c9026711f600c7ddb"
-  integrity sha1-NJjZ+dVrxBqbQDeckCZxH2AMfds=
+schematics-task@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.npmmirror.com/schematics-task/download/schematics-task-0.2.9.tgz#994750bf874b7910ec65bd838ac48c1637d40bf9"
+  integrity sha1-mUdQv4dLeRDsZb2DisSMFjfUC/k=
   dependencies:
     debug "^4.3.2"
     tslib "^2.3.1"
