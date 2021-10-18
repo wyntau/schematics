@@ -8,7 +8,7 @@
       "description": "the registry used",
       "default": "https://registry.npmmirror.com",
       "enum": ["https://registry.npmjs.org", "https://registry.npmmirror.com", "http://r.npm.sankuai.com"],
-      "x-prompt": "选择需要使用的 registry 源"
+      "x-prompt": "Choose npm registry"
     },
     "enable-engine-strict": {
       "type": "boolean",
@@ -19,13 +19,13 @@
       "type": "boolean",
       "default": true,
       "description": "enable yarn support",
-      "x-prompt": "添加 yarn 支持， 生成 .yarnrc"
+      "x-prompt": "Choose to enable yarn support, and create .yarnrc"
     },
     "enable-nvm": {
       "type": "boolean",
       "default": true,
       "description": "enable nvm support",
-      "x-prompt": "添加 nvm 支持，生成 .nvmrc"
+      "x-prompt": "Choose to enable nvm support, and create .nvmrc"
     }
   }
 }

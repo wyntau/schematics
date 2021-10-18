@@ -7,20 +7,20 @@
       "type": "boolean",
       "description": "enable Typescript",
       "default": true,
-      "x-prompt": "使用 Typescript"
+      "x-prompt": "Choose to use Typescript"
     },
     "toolchain": {
       "type": "array",
       "description": "enabled toolchains",
       "default": ["eslint", "prettier", "husky", "lint-staged", "commitlint"],
       "x-prompt": {
-        "message": "选择需要使用的工具链",
+        "message": "Choose enabled toolchains",
         "type": "list",
         "items": [
           { "label": "ESLint", "value": "eslint" },
           { "label": "Prettier", "value": "prettier" },
 
-          { "label": "Husky", "value": "husky" },
+          { "label": "husky", "value": "husky" },
           { "label": "lint-staged", "value": "lint-staged" },
           { "label": "commitlint", "value": "commitlint" },
 
@@ -33,12 +33,13 @@
     "target": {
       "type": "string",
       "default": "node",
-      "description": "target",
+      "enum": ["node", "react", "react-enable-jsx-runtime", "vue"],
+      "description": "starget stack",
       "x-prompt": {
-        "message": "选择目标技术栈",
+        "message": "Choose the target stack",
         "type": "list",
         "items": [
-          { "label": "node", "value": "node" },
+          { "label": "Node.js", "value": "node" },
           { "label": "React", "value": "react" },
           { "label": "React with jsx runtime", "value": "react-enable-jsx-runtime" },
           { "label": "Vue", "value": "vue" }

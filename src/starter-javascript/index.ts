@@ -1,35 +1,24 @@
 import { chain, noop, Rule, schematic } from '@angular-devkit/schematics';
 import { camelCasedOptions, unprefixedOptions } from '../shared/schema';
-import { IStarterJavascriptOptions } from './schema';
+import { IStarterJavascriptOptions, schemaJson } from './schema';
 import { debugLib } from '../shared/utility/debug';
 
 const debug = debugLib('starter-javascript');
-const optionKeys: IStarterJavascriptOptions['toolchain'] = [
-  'commitlint',
-  'eslint',
-  'husky',
-  'lerna',
-  'lint-recently',
-  'lint-staged',
-  'patch-package',
-  'prettier',
-];
-const falsyOptions = optionKeys.reduce<Record<string, boolean>>(
-  (options, key) => ((options[`toolchain-${key}`] = false), options),
-  {}
-);
 
 type ItemTypeOf<T extends Array<any>> = T extends Array<infer U> ? U : never;
-
-type ExcludeToolchainKeys = Exclude<keyof IStarterJavascriptOptions, 'toolchain'>;
 type ToolchainChildKeys = `toolchain-${ItemTypeOf<IStarterJavascriptOptions['toolchain']> | 'npm'}`;
 type RawOptions = Partial<
-  {
-    [P in ExcludeToolchainKeys]: IStarterJavascriptOptions[P];
-  } & {
+  Omit<IStarterJavascriptOptions, 'toolchain'> & {
     [P in ToolchainChildKeys]: boolean;
   }
 >;
+
+const falsyOptions = (
+  schemaJson.properties.toolchain['x-prompt'].items.map((item) => item.value) as IStarterJavascriptOptions['toolchain']
+).reduce<Partial<Record<ToolchainChildKeys, boolean>>>(
+  (options, key) => ((options[`toolchain-${key}`] = false), options),
+  {}
+);
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.

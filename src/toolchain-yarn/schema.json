@@ -8,7 +8,7 @@
       "description": "the registry used",
       "default": "https://registry.npmmirror.com",
       "enum": ["https://registry.npmjs.org", "https://registry.npmmirror.com", "http://r.npm.sankuai.com"],
-      "x-prompt": "选择需要使用的 registry 源"
+      "x-prompt": "Choose npm registry"
     }
   }
 }
