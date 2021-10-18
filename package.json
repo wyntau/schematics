@@ -18,8 +18,7 @@
     "schematics"
   ],
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
   "author": "wyntau <wyntau@outlook.com>",
   "license": "MIT",
