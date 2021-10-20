@@ -11,7 +11,7 @@
     "lint": "npm run eslint",
     "eslint": "DEBUG=eslint:cli-engine eslint src",
     "eslint-fix": "DEBUG=eslint:cli-engine eslint --fix src",
-    "prepare": "husky install || exit 0",
+    "prepare": "(husky install 2>/dev/null ||:) && mkdir -p .husky",
     "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
