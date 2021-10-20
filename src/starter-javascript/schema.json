@@ -26,7 +26,8 @@
 
           { "label": "patch-package", "value": "patch-package" },
           { "label": "lerna", "value": "lerna" },
-          { "label": "lint-recently", "value": "lint-recently" }
+          { "label": "lint-recently", "value": "lint-recently" },
+          { "label": "renovate", "value": "renovate" }
         ]
       }
     },
