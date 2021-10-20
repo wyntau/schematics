@@ -1,6 +1,6 @@
 import { chain, noop, Rule, Tree, url } from '@angular-devkit/schematics';
 import { JSONFile } from '@schematics/angular/utility/json-file';
-import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/packageJson';
+import { addPackageJsonDependency, addPackageJsonScript, NodeDependencyType } from '../shared/rules/packageJson';
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainEslintOptions } from './schema';
@@ -40,11 +40,12 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
       ? addPackageJsonDependency(dependencies, ['eslint-plugin-vue', 'vue-eslint-parser'], NodeDependencyType.Dev)
       : noop(),
 
-    function (tree: Tree) {
-      const packageJson = new JSONFile(tree, 'package.json');
-      packageJson.modify(['scripts', 'eslint'], 'DEBUG=eslint:cli-engine eslint .');
-      packageJson.modify(['scripts', 'eslint-fix'], 'DEBUG=eslint:cli-engine eslint --fix .');
+    addPackageJsonScript({
+      eslint: 'DEBUG=eslint:cli-engine eslint .',
+      'eslint-fix': 'DEBUG=eslint:cli-engine eslint --fix .',
+    }),
 
+    function (tree: Tree) {
       const eslintrcJson = new JSONFile(tree, '.eslintrc.json');
 
       let extendsArray: Array<string> = ['eslint:recommended'];
