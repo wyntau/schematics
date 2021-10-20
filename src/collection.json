@@ -63,6 +63,10 @@
     "toolchain-lint-recently": {
       "description": "A blank schematic.",
       "factory": "./toolchain-lint-recently/index#toolchainLintRecently"
+    },
+    "toolchain-renovate": {
+      "description": "A blank schematic.",
+      "factory": "./toolchain-renovate/index#toolchainRenovate"
     }
   }
 }
