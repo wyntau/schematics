@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/core@12.2.10":
-  version "12.2.10"
-  resolved "https://registry.npmmirror.com/@angular-devkit/core/download/@angular-devkit/core-12.2.10.tgz#3da62eceef3904f92cd3f860618b4ae513029ce2"
-  integrity sha1-PaYuzu85BPks0/hgYYtK5RMCnOI=
+"@angular-devkit/core@12.2.11":
+  version "12.2.11"
+  resolved "https://registry.npmmirror.com/@angular-devkit/core/download/@angular-devkit/core-12.2.11.tgz#ea8a4d8932fbf3f4a175ad8ac06497e00023b3c1"
+  integrity sha1-6opNiTL78/Shda2KwGSX4AAjs8E=
   dependencies:
     ajv "8.6.2"
     ajv-formats "2.1.0"
@@ -26,24 +26,24 @@
     rxjs "6.6.7"
     source-map "0.7.3"
 
-"@angular-devkit/schematics-cli@12.2.10":
-  version "12.2.10"
-  resolved "https://registry.npmmirror.com/@angular-devkit/schematics-cli/download/@angular-devkit/schematics-cli-12.2.10.tgz#91d27181176b924fa8872506d3552c183e6f2f1f"
-  integrity sha1-kdJxgRdrkk+ohyUG01UsGD5vLx8=
+"@angular-devkit/schematics-cli@12.2.11":
+  version "12.2.11"
+  resolved "https://registry.npmmirror.com/@angular-devkit/schematics-cli/download/@angular-devkit/schematics-cli-12.2.11.tgz#99c0b486588a7102e78a9f64eaf169e9535fe4a7"
+  integrity sha1-mcC0hliKcQLnip9k6vFp6VNf5Kc=
   dependencies:
-    "@angular-devkit/core" "12.2.10"
-    "@angular-devkit/schematics" "12.2.10"
+    "@angular-devkit/core" "12.2.11"
+    "@angular-devkit/schematics" "12.2.11"
     ansi-colors "4.1.1"
     inquirer "8.1.2"
     minimist "1.2.5"
     symbol-observable "4.0.0"
 
-"@angular-devkit/schematics@12.2.10":
-  version "12.2.10"
-  resolved "https://registry.npmmirror.com/@angular-devkit/schematics/download/@angular-devkit/schematics-12.2.10.tgz#b8d4031053fd76d93caa7f33aeeb67383e37f0ab"
-  integrity sha1-uNQDEFP9dtk8qn8zrutnOD438Ks=
+"@angular-devkit/schematics@12.2.11":
+  version "12.2.11"
+  resolved "https://registry.npmmirror.com/@angular-devkit/schematics/download/@angular-devkit/schematics-12.2.11.tgz#6dbd331aa2dc1c7afbf19f5db0e628d281cf19fd"
+  integrity sha1-bb0zGqLcHHr78Z9dsOYo0oHPGf0=
   dependencies:
-    "@angular-devkit/core" "12.2.10"
+    "@angular-devkit/core" "12.2.11"
     ora "5.4.1"
     rxjs "6.6.7"
 
