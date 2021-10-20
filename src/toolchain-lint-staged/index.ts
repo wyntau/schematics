@@ -1,5 +1,5 @@
 import { chain, noop, Rule, url } from '@angular-devkit/schematics';
-import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/packageJson';
 import { IToolchainLintStagedOptions } from './schema';
 import { addHookScript } from '../toolchain-husky/utility';
 import { camelCasedOptions } from '../shared/schema';
