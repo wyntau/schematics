@@ -1,6 +1,6 @@
 import { chain, Rule, Tree } from '@angular-devkit/schematics';
 import { JSONFile } from '@schematics/angular/utility/json-file';
-import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/packageJson';
 import { dependencies } from './latest-versions/package.json';
 
 // You don't have to export the function as default. You can also have more than one rule factory

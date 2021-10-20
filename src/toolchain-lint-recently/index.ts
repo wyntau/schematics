@@ -1,5 +1,5 @@
 import { chain, Rule, url } from '@angular-devkit/schematics';
-import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/packageJson';
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { dependencies } from './latest-versions/package.json';
 

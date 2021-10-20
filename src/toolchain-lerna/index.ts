@@ -1,5 +1,5 @@
 import { apply, chain, contentTemplate, Rule, url } from '@angular-devkit/schematics';
-import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/dependencies';
+import { addPackageJsonDependency, NodeDependencyType } from '../shared/rules/packageJson';
 import { mergeWithIfNotExist } from '../shared/rules/files';
 import { camelCasedOptions } from '../shared/schema';
 import { IToolchainLernaOptions } from './schema';
