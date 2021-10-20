@@ -61,5 +61,9 @@ export function starterJavascript(_options: IStarterJavascriptOptions): Rule {
     options.toolchainPatchPackage
       ? schematic('toolchain-patch-package', unprefixedOptions(rawOptions, 'toolchain-patch-package'))
       : noop(),
+
+    options.toolchainRenovate
+      ? schematic('toolchain-renovate', unprefixedOptions(rawOptions, 'toolchain-renovate'))
+      : noop(),
   ]);
 }
