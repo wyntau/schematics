@@ -27,6 +27,7 @@ These are the real starter you can use to quickly start a project.
 
 These are some atom schematics you can combine together to add some toolchains to your new/exist project.
 
+- toolchain-commitlint
 - toolchain-eslint
 - toolchain-husky
 - toolchain-lerna
@@ -36,6 +37,7 @@ These are some atom schematics you can combine together to add some toolchains t
 - toolchain-nvm
 - toolchain-patch-package
 - toolchain-prettier
+- toolchain-renovate
 - toolchain-typescript
 - toolchain-yarn
 
