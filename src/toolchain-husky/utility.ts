@@ -16,7 +16,7 @@ export function addHookScript(hook: string, script: string): Rule {
       });
     }
 
-    const hookFileContent = tree.read(hookFile)!.toString();
+    const hookFileContent = tree.read(hookFile)!.toString(); // eslint-disable-line @typescript-eslint/no-non-null-assertion
     if (hookFileContent.indexOf(script) >= 0) {
       debug(`exist hook %s have same script, skip: %s`, hook, script);
       return tree;

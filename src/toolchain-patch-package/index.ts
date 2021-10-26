@@ -4,7 +4,7 @@ import { dependencies } from './latest-versions/package.json';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function toolchainPatchPackage(_options: any): Rule {
+export function toolchainPatchPackage(): Rule {
   return chain([
     addPackageJsonDependency(dependencies, ['patch-package', 'postinstall-postinstall'], NodeDependencyType.Dev),
     addPackageJsonScript({

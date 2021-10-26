@@ -52,10 +52,10 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
       eslintrcJson.modify(['extends'], extendsArray);
 
       let parser: string;
-      eslintrcJson.modify(['parser'], parser!);
+      eslintrcJson.modify(['parser'], parser!); // eslint-disable-line @typescript-eslint/no-non-null-assertion
 
       let parserOptionsProject: Array<string> = [];
-      eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject!);
+      eslintrcJson.modify(['parserOptions', 'project'], parserOptionsProject!); // eslint-disable-line @typescript-eslint/no-non-null-assertion
 
       if (options.toolchainTypescript) {
         extendsArray = extendsArray.concat('plugin:@typescript-eslint/recommended');
@@ -83,7 +83,7 @@ export function toolchainEslint(_options: IToolchainEslintOptions): Rule {
           extendsArray = extendsArray.concat('plugin:vue/recommended');
           eslintrcJson.modify(['extends'], extendsArray);
 
-          const originParser = parser!;
+          const originParser = parser!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
           parser = 'vue-eslint-parser';
           eslintrcJson.modify(['parserOptions', 'parser'], originParser);
           eslintrcJson.modify(['parser'], parser);
