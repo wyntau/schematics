@@ -5,7 +5,7 @@ import { dependencies } from './latest-versions/package.json';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function toolchainLintRecently(_options: any): Rule {
+export function toolchainLintRecently(): Rule {
   return chain([
     mergeWithIfNotExist(url('./files')),
     addPackageJsonDependency(dependencies, ['lint-recently'], NodeDependencyType.Dev),
