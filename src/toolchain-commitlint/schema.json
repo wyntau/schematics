@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "toolchainCommitlintSchema",
+  "$id": "toolchainCommitlintOptionsSchema",
   "title": "toolchain commitlint options schema",
   "properties": {
     "toolchain-husky": {
