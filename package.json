@@ -1,6 +1,6 @@
 {
   "name": "@wyntau/schematics",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A schematics",
   "scripts": {
     "clean": "rm -rf dist && git checkout -- dist",
