@@ -260,10 +260,10 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/jasmine@3.10.0":
-  version "3.10.0"
-  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.10.0.tgz#b55e7184102ef320c4e8fb3d64ebfac309f60bf7"
-  integrity sha1-tV5xhBAu8yDE6Ps9ZOv6wwn2C/c=
+"@types/jasmine@3.10.1":
+  version "3.10.1"
+  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.10.1.tgz#9a7ceab2e539503f70a7e6a7028c70171aca2754"
+  integrity sha1-mnzqsuU5UD9wp+anAoxwFxrKJ1Q=
 
 "@types/json-schema@^7.0.9":
   version "7.0.9"
