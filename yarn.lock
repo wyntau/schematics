@@ -2,24 +2,26 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/core@12.2.9", "@angular-devkit/core@^12.2.9":
-  version "12.2.9"
-  resolved "https://registry.npmmirror.com/@angular-devkit/core/download/@angular-devkit/core-12.2.9.tgz?cache=0&sync_timestamp=1633588475010&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40angular-devkit%2Fcore%2Fdownload%2F%40angular-devkit%2Fcore-12.2.9.tgz#58f41ca4fea44307d90fb23af605ee06fe3c5552"
-  integrity sha1-WPQcpP6kQwfZD7I69gXuBv48VVI=
+"@angular-devkit/core@13.0.0", "@angular-devkit/core@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.npmmirror.com/@angular-devkit/core/download/@angular-devkit/core-13.0.0.tgz#7560902ec06a40f574e09d223354360f3d8db453"
+  integrity sha1-dWCQLsBqQPV04J0iM1Q2Dz2NtFM=
   dependencies:
-    ajv "8.6.2"
-    ajv-formats "2.1.0"
+    ajv "8.6.3"
+    ajv-formats "2.1.1"
     fast-json-stable-stringify "2.1.0"
     magic-string "0.25.7"
     rxjs "6.6.7"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@12.2.9", "@angular-devkit/schematics@^12.2.9":
-  version "12.2.9"
-  resolved "https://registry.npmmirror.com/@angular-devkit/schematics/download/@angular-devkit/schematics-12.2.9.tgz#5dd639f5290b9dcb2e61b0ae167fc5258ec22a51"
-  integrity sha1-XdY59SkLncsuYbCuFn/FJY7CKlE=
+"@angular-devkit/schematics@13.0.0", "@angular-devkit/schematics@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.npmmirror.com/@angular-devkit/schematics/download/@angular-devkit/schematics-13.0.0.tgz#2fbcd44d042f412863bf51ed9149df03fe1a1628"
+  integrity sha1-L7zUTQQvQShjv1HtkUnfA/4aFig=
   dependencies:
-    "@angular-devkit/core" "12.2.9"
+    "@angular-devkit/core" "13.0.0"
+    jsonc-parser "3.0.0"
+    magic-string "0.25.7"
     ora "5.4.1"
     rxjs "6.6.7"
 
@@ -244,13 +246,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@schematics/angular@^12.2.9":
-  version "12.2.9"
-  resolved "https://registry.npmmirror.com/@schematics/angular/download/@schematics/angular-12.2.9.tgz#6787a7b79020fb031e46e59f36767d6579dc5d50"
-  integrity sha1-Z4ent5Ag+wMeRuWfNnZ9ZXncXVA=
+"@schematics/angular@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.npmmirror.com/@schematics/angular/download/@schematics/angular-13.0.0.tgz?cache=0&sync_timestamp=1635975370183&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40schematics%2Fangular%2Fdownload%2F%40schematics%2Fangular-13.0.0.tgz#430da6b345314228655531dedf76fb468825e371"
+  integrity sha1-Qw2ms0UxQihlVTHe33b7Rogl43E=
   dependencies:
-    "@angular-devkit/core" "12.2.9"
-    "@angular-devkit/schematics" "12.2.9"
+    "@angular-devkit/core" "13.0.0"
+    "@angular-devkit/schematics" "13.0.0"
     jsonc-parser "3.0.0"
 
 "@types/debug@^4.1.7":
@@ -391,17 +393,17 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv-formats@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmmirror.com/ajv-formats/download/ajv-formats-2.1.0.tgz#96eaf83e38d32108b66d82a9cb0cfa24886cdfeb"
-  integrity sha1-lur4PjjTIQi2bYKpywz6JIhs3+s=
+ajv-formats@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmmirror.com/ajv-formats/download/ajv-formats-2.1.1.tgz#6e669400659eb74973bbf2e33327180a0996b520"
+  integrity sha1-bmaUAGWet0lzu/LjMycYCgmWtSA=
   dependencies:
     ajv "^8.0.0"
 
-ajv@8.6.2:
-  version "8.6.2"
-  resolved "https://registry.npmmirror.com/ajv/download/ajv-8.6.2.tgz#2fb45e0e5fcbc0813326c1c3da535d1881bb0571"
-  integrity sha1-L7ReDl/LwIEzJsHD2lNdGIG7BXE=
+ajv@8.6.3, ajv@^8.0.0:
+  version "8.6.3"
+  resolved "https://registry.npmmirror.com/ajv/download/ajv-8.6.3.tgz#11a66527761dc3e9a3845ea775d2d3c0414e8764"
+  integrity sha1-EaZlJ3Ydw+mjhF6nddLTwEFOh2Q=
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -416,16 +418,6 @@ ajv@^6.10.0, ajv@^6.12.4:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
-
-ajv@^8.0.0:
-  version "8.6.3"
-  resolved "https://registry.npmmirror.com/ajv/download/ajv-8.6.3.tgz#11a66527761dc3e9a3845ea775d2d3c0414e8764"
-  integrity sha1-EaZlJ3Ydw+mjhF6nddLTwEFOh2Q=
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    json-schema-traverse "^1.0.0"
-    require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
 ansi-colors@^4.1.1:
