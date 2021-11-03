@@ -44,7 +44,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@commitlint/cli@14.1.0":
+"@commitlint/cli@^14.1.0":
   version "14.1.0"
   resolved "https://registry.npmmirror.com/@commitlint/cli/download/@commitlint/cli-14.1.0.tgz#7b657a955ed22f3df348ba9afa6ce5a5121ff7eb"
   integrity sha1-e2V6lV7SLz3zSLqa+mzlpRIf9+s=
@@ -59,7 +59,7 @@
     resolve-global "1.0.0"
     yargs "^17.0.0"
 
-"@commitlint/config-conventional@14.1.0":
+"@commitlint/config-conventional@^14.1.0":
   version "14.1.0"
   resolved "https://registry.npmmirror.com/@commitlint/config-conventional/download/@commitlint/config-conventional-14.1.0.tgz#29e386ef200fa72d43418153ab1c490c89024dee"
   integrity sha1-KeOG7yAPpy1DQYFTqxxJDIkCTe4=
@@ -253,17 +253,17 @@
     "@angular-devkit/schematics" "12.2.9"
     jsonc-parser "3.0.0"
 
-"@types/debug@4.1.7":
+"@types/debug@^4.1.7":
   version "4.1.7"
   resolved "https://registry.npmmirror.com/@types/debug/download/@types/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
   integrity sha1-fMDqdhUJEkcJuLLRCQ2PbBeq24I=
   dependencies:
     "@types/ms" "*"
 
-"@types/jasmine@3.10.1":
-  version "3.10.1"
-  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.10.1.tgz#9a7ceab2e539503f70a7e6a7028c70171aca2754"
-  integrity sha1-mnzqsuU5UD9wp+anAoxwFxrKJ1Q=
+"@types/jasmine@^3.10.1":
+  version "3.10.2"
+  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.10.2.tgz?cache=0&sync_timestamp=1635904178148&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjasmine%2Fdownload%2F%40types%2Fjasmine-3.10.2.tgz#1b9f9ba9ad7bfd7d322f7ed9d8753220b1c84b52"
+  integrity sha1-G5+bqa17/X0yL37Z2HUyILHIS1I=
 
 "@types/json-schema@^7.0.9":
   version "7.0.9"
@@ -280,10 +280,10 @@
   resolved "https://registry.npmmirror.com/@types/ms/download/@types/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha1-MbfKZAcSij0rvCf+LSGzRTl/YZc=
 
-"@types/node@16.10.3":
-  version "16.10.3"
-  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.10.3.tgz#7a8f2838603ea314d1d22bb3171d899e15c57bd5"
-  integrity sha1-eo8oOGA+oxTR0iuzFx2JnhXFe9U=
+"@types/node@^16.10.3":
+  version "16.11.6"
+  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.6.tgz#6bef7a2a0ad684cf6e90fcfe31cecabd9ce0a3ae"
+  integrity sha1-a+96KgrWhM9ukPz+Mc7KvZzgo64=
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -295,7 +295,7 @@
   resolved "https://registry.npmmirror.com/@types/parse-json/download/@types/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
-"@typescript-eslint/eslint-plugin@5.3.0":
+"@typescript-eslint/eslint-plugin@^5.3.0":
   version "5.3.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-5.3.0.tgz#a55ae72d28ffeb6badd817fe4566c9cced1f5e29"
   integrity sha1-pVrnLSj/62ut2Bf+RWbJzO0fXik=
@@ -321,7 +321,7 @@
     eslint-scope "^5.1.1"
     eslint-utils "^3.0.0"
 
-"@typescript-eslint/parser@5.3.0":
+"@typescript-eslint/parser@^5.3.0":
   version "5.3.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/parser/download/@typescript-eslint/parser-5.3.0.tgz#7879f15e26d370ed3f653fb7dd06479531ed3ab9"
   integrity sha1-eHnxXibTcO0/ZT+33QZHlTHtOrk=
@@ -821,12 +821,12 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.npmmirror.com/escape-string-regexp/download/escape-string-regexp-4.0.0.tgz?cache=0&sync_timestamp=1632405132730&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fescape-string-regexp%2Fdownload%2Fescape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha1-FLqDpdNz49MR5a/KKc9b+tllvzQ=
 
-eslint-config-prettier@8.3.0:
+eslint-config-prettier@^8.3.0:
   version "8.3.0"
   resolved "https://registry.npmmirror.com/eslint-config-prettier/download/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha1-90cbILb+ipqSVMxoRFQgKIai3Xo=
 
-eslint-plugin-prettier@4.0.0:
+eslint-plugin-prettier@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmmirror.com/eslint-plugin-prettier/download/eslint-plugin-prettier-4.0.0.tgz#8b99d1e4b8b24a762472b4567992023619cb98e0"
   integrity sha1-i5nR5LiySnYkcrRWeZICNhnLmOA=
@@ -866,7 +866,7 @@ eslint-visitor-keys@^3.0.0:
   resolved "https://registry.npmmirror.com/eslint-visitor-keys/download/eslint-visitor-keys-3.0.0.tgz?cache=0&sync_timestamp=1632763738260&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-3.0.0.tgz#e32e99c6cdc2eb063f204eda5db67bfe58bb4186"
   integrity sha1-4y6Zxs3C6wY/IE7aXbZ7/li7QYY=
 
-eslint@8.1.0:
+eslint@^8.1.0:
   version "8.1.0"
   resolved "https://registry.npmmirror.com/eslint/download/eslint-8.1.0.tgz#00f1f7dbf4134f26588e6c9f2efe970760f64664"
   integrity sha1-APH32/QTTyZYjmyfLv6XB2D2RmQ=
@@ -1195,10 +1195,10 @@ human-signals@^2.1.0:
   resolved "https://registry.npmmirror.com/human-signals/download/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha1-3JH8ukLk0G5Kuu0zs+ejwC9RTqA=
 
-husky@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.npmmirror.com/husky/download/husky-7.0.2.tgz#21900da0f30199acca43a46c043c4ad84ae88dff"
-  integrity sha1-IZANoPMBmazKQ6RsBDxK2Erojf8=
+husky@^7.0.2:
+  version "7.0.4"
+  resolved "https://registry.npmmirror.com/husky/download/husky-7.0.4.tgz#242048245dc49c8fb1bf0cc7cfb98dd722531535"
+  integrity sha1-JCBIJF3EnI+xvwzHz7mN1yJTFTU=
 
 ieee754@^1.1.13:
   version "1.2.1"
@@ -1337,9 +1337,9 @@ jasmine-core@~3.10.0:
   resolved "https://registry.npmmirror.com/jasmine-core/download/jasmine-core-3.10.0.tgz#1e3e4053d954eb6d0bfbb3eb859bb21a5655de45"
   integrity sha1-Hj5AU9lU620L+7PrhZuyGlZV3kU=
 
-jasmine@3.10.0:
+jasmine@^3.10.0:
   version "3.10.0"
-  resolved "https://registry.npmmirror.com/jasmine/download/jasmine-3.10.0.tgz?cache=0&sync_timestamp=1634177180013&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fjasmine%2Fdownload%2Fjasmine-3.10.0.tgz#acd3cd560a9d20d8fdad6bd2dd05867d188503f3"
+  resolved "https://registry.npmmirror.com/jasmine/download/jasmine-3.10.0.tgz#acd3cd560a9d20d8fdad6bd2dd05867d188503f3"
   integrity sha1-rNPNVgqdINj9rWvS3QWGfRiFA/M=
   dependencies:
     glob "^7.1.6"
@@ -1422,10 +1422,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npmmirror.com/lines-and-columns/download/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@11.2.3:
-  version "11.2.3"
-  resolved "https://registry.npmmirror.com/lint-staged/download/lint-staged-11.2.3.tgz#fc3f4569cc4f46553309dfc1447b8aef69f744fb"
-  integrity sha1-/D9FacxPRlUzCd/BRHuK72n3RPs=
+lint-staged@^11.2.3:
+  version "11.2.6"
+  resolved "https://registry.npmmirror.com/lint-staged/download/lint-staged-11.2.6.tgz?cache=0&sync_timestamp=1635741247130&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Flint-staged%2Fdownload%2Flint-staged-11.2.6.tgz#f477b1af0294db054e5937f171679df63baa4c43"
+  integrity sha1-9HexrwKU2wVOWTfxcWed9juqTEM=
   dependencies:
     cli-truncate "2.1.0"
     colorette "^1.4.0"
@@ -1781,7 +1781,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.4.1:
+prettier@^2.4.1:
   version "2.4.1"
   resolved "https://registry.npmmirror.com/prettier/download/prettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
   integrity sha1-Zx4RyJwUpM/Ids5WQQbEpnJsn1w=
@@ -2227,15 +2227,15 @@ type-fest@^2.5.0:
   resolved "https://registry.npmmirror.com/type-fest/download/type-fest-2.5.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftype-fest%2Fdownload%2Ftype-fest-2.5.0.tgz#e5d0ef818d565e8fc442414194a4ac3afc4c42a7"
   integrity sha1-5dDvgY1WXo/EQkFBlKSsOvxMQqc=
 
-typescript@4.4.4:
-  version "4.4.4"
-  resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz?cache=0&sync_timestamp=1634197241302&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
-  integrity sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=
-
 typescript@^4.4.3:
   version "4.4.3"
   resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
   integrity sha1-vcVAfKorEJ79T4L+EwZW+XeikyQ=
+
+typescript@^4.4.4:
+  version "4.4.4"
+  resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz?cache=0&sync_timestamp=1635924117926&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  integrity sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=
 
 universalify@^2.0.0:
   version "2.0.0"
