@@ -5,13 +5,14 @@ import {
 } from '@schematics/angular/utility/dependencies';
 import { JSONFile } from '@schematics/angular/utility/json-file';
 import { cyan, redBright } from 'colorette';
+import { PackageJson } from 'type-fest';
 import { debugLib } from '../utility/debug';
 
 export { NodeDependencyType } from '@schematics/angular/utility/dependencies';
 
 const debug = debugLib('shared/rules/packageJson');
 
-export function addPackageJsonDependency<T extends Record<string, string>>(
+export function addPackageJsonDependency<T extends PackageJson.Dependency>(
   latestVersions: T,
   packageNames: Array<keyof T> = Object.keys(latestVersions),
   type: NodeDependencyType = NodeDependencyType.Default
@@ -37,7 +38,7 @@ export function addPackageJsonDependency<T extends Record<string, string>>(
   };
 }
 
-export function addPackageJsonScript(scripts: Record<string, string>): Rule {
+export function addPackageJsonScript(scripts: PackageJson.Scripts): Rule {
   return function (tree: Tree): Tree {
     const packageJson = new JSONFile(tree, 'package.json');
     Object.keys(scripts).forEach((name) => {
