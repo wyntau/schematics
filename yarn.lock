@@ -295,10 +295,10 @@
   dependencies:
     "@types/ms" "*"
 
-"@types/jasmine@^3.10.1":
-  version "3.10.2"
-  resolved "https://registry.npmmirror.com/@types/jasmine/download/@types/jasmine-3.10.2.tgz?cache=0&sync_timestamp=1635904178148&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjasmine%2Fdownload%2F%40types%2Fjasmine-3.10.2.tgz#1b9f9ba9ad7bfd7d322f7ed9d8753220b1c84b52"
-  integrity sha1-G5+bqa17/X0yL37Z2HUyILHIS1I=
+"@types/jasmine@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@types/jasmine/-/jasmine-4.0.0.tgz#48bfd99cbe16dcdcde0b7d3bfa62319504d141f9"
+  integrity sha512-KvhqNz4NaONk7cfp4E9x+uXOUp7x4H2Zeyb4yXnw2vIuxD5YfSi1767x+aF7z54elhZcC0OH9/78/WL6+5jcDg==
 
 "@types/json-schema@^7.0.9":
   version "7.0.9"
