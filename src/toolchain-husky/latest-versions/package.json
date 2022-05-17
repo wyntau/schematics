@@ -3,6 +3,6 @@
   "comment": "This file is needed so that depedencies are synced by Renovate.",
   "private": true,
   "dependencies": {
-    "husky": "^7.0.2"
+    "husky": "^8.0.0"
   }
 }

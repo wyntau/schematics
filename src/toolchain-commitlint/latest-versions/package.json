@@ -3,7 +3,7 @@
   "comment": "This file is needed so that depedencies are synced by Renovate.",
   "private": true,
   "dependencies": {
-    "@commitlint/cli": "^16.0.0",
-    "@commitlint/config-conventional": "^16.0.0"
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0"
   }
 }
