@@ -3,6 +3,6 @@
   "comment": "This file is needed so that depedencies are synced by Renovate.",
   "private": true,
   "dependencies": {
-    "lint-staged": "^12.0.0"
+    "lint-staged": "^13.0.0"
   }
 }
