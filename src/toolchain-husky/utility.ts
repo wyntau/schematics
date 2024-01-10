@@ -1,7 +1,6 @@
 import { Rule, Tree } from '@angular-devkit/schematics';
 import { debugLib } from '../shared/utility/debug';
 import { addTask as addSchematicsTask } from 'schematics-task';
-import execa from 'execa';
 
 const debug = debugLib('toolchain-husky');
 
@@ -11,6 +10,7 @@ export function addHookScript(hook: string, script: string): Rule {
 
     if (!tree.exists(hookFile)) {
       return addSchematicsTask(async function createHookFile() {
+        const { execa } = await import('execa');
         debug('create hook %s with script: %s', hook, script);
         await execa('npx', ['husky', 'add', hookFile, script]);
       });
@@ -23,6 +23,7 @@ export function addHookScript(hook: string, script: string): Rule {
     }
 
     return addSchematicsTask(async function appendHookFile() {
+      const { execa } = await import('execa');
       debug('append hook %s with script: %s', hook, script);
       await execa('npx', ['husky', 'add', hookFile, script]);
     });
