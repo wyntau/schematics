@@ -3,6 +3,6 @@
   "comment": "This file is needed so that depedencies are synced by Renovate.",
   "private": true,
   "dependencies": {
-    "prettier": "^2.4.1"
+    "prettier": "^3.0.0"
   }
 }

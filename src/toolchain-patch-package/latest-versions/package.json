@@ -3,7 +3,7 @@
   "comment": "This file is needed so that depedencies are synced by Renovate.",
   "private": true,
   "dependencies": {
-    "patch-package": "^7.0.0",
+    "patch-package": "^8.0.0",
     "postinstall-postinstall": "^2.1.0"
   }
 }
